@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".FunFactActivity"
+    android:padding="36dp">
+
+    <TextView
+        android:id="@+id/tv_scorekamuadalah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score Kamu adalah"
+        android:textColor="@color/kresna_cream"
+        android:textAlignment="textEnd"
+        android:layout_alignParentEnd="true"
+        android:textSize="16dp"/>
+    <TextView
+        android:id="@+id/tv_nilai_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8/10"
+        android:textColor="@color/kresna_cream"
+        android:textSize="48dp"
+        android:textStyle="bold"
+        android:textAlignment="textEnd"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/tv_scorekamuadalah"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/kresna_cream"
+        app:cardCornerRadius="12dp">
+        <LinearLayout
+            android:padding="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="144dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/funfact_rencang"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Judul"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Rencong atau yang dalam Bahasa Aceh yang ditulis dengan huruf latin dibaca Rintjong adalah senjata khas Suku Aceh. Rencong merupakan simbol identitas diri, keberanian, dan ketangguhan Suku Aceh. Ada beberapa jenis rencong. Pertama Rencong Pudoi yaitu Rencong yang belum sempurna pada bentuk gagangnya."/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@color/black">
+
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score: 0"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/tv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="KRESNA"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/kresna_cream"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:gravity="center">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_soal"
+            android:layout_width="wrap_content"
+            android:layout_height="144dp"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="30dp"
+            app:cardBackgroundColor="@color/kresna_cream"
+            android:textAlignment="center">
+            <TextView
+                android:id="@+id/tv_soal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_margin="24dp"
+                android:text="10 + 10"
+                android:textStyle="bold"
+                android:textSize="48dp"
+                android:textColor="@android:color/holo_red_dark"/>
+        </androidx.cardview.widget.CardView>
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:layout_margin="16dp">
+            <Button
+                android:id="@+id/btn_option1"
+                android:layout_width="144dp"
+                android:layout_height="144dp"
+                android:layout_margin="4dp"
+                android:text="option1"/>
+            <Button
+                android:id="@+id/btn_option2"
+                android:layout_width="144dp"
+                android:layout_height="144dp"
+                android:layout_margin="4dp"
+                android:text="option2"/>
+            <Button
+                android:id="@+id/btn_option3"
+                android:layout_width="144dp"
+                android:layout_height="144dp"
+                android:layout_margin="4dp"
+                android:text="option3"/>
+            <Button
+                android:id="@+id/btn_option4"
+                android:layout_width="144dp"
+                android:layout_height="144dp"
+                android:layout_margin="4dp"
+                android:text="option4"/>
+        </GridLayout>
+    </LinearLayout>
+</RelativeLayout>
