@@ -2,7 +2,10 @@ package com.example.kresnaapps;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
 
 import com.example.kresnaapps.databinding.ActivityFunFactBinding;
 
@@ -12,8 +15,9 @@ public class FunFactActivity extends AppCompatActivity {
 
     private ActivityFunFactBinding binding;
     private List<Question> questionList;
-    private int score, category;
+    private int score, category, mediaPlayerState;
     private String difficulty;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,5 +33,37 @@ public class FunFactActivity extends AppCompatActivity {
 
         binding.tvNilaiScore.setText(String.valueOf(score) + "/" + String.valueOf(questionList.size()));
 
+        mediaPlayerState = 0;
+        binding.btnPlayAudio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mediaPlayerState == 0){
+                    mediaPlayerState++;
+                    startPlaying();
+                } else {
+                    mediaPlayerState = 0;
+                    stopPlaying();
+                }
+
+            }
+        });
+
+    }
+
+    private void stopPlaying() {
+        if (mediaPlayer != null) {
+            binding.btnPlayAudio.setImageResource(R.drawable.ic_baseline_play_arrow_24);
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
+    private void startPlaying() {
+        if (mediaPlayer == null){
+            binding.btnPlayAudio.setImageResource(R.drawable.ic_baseline_stop_24);
+            mediaPlayer = MediaPlayer.create(FunFactActivity.this, R.raw.music);
+            mediaPlayer.start();
+        }
     }
 }

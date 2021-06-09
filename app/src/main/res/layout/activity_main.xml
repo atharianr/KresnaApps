@@ -4,65 +4,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/background_hitam_wayang"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_hitam_wayang" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="36dp"
             android:text="KRESNA"
-            android:textStyle="bold"
+            android:textColor="@color/kresna_cream"
             android:textSize="54dp"
-            android:textColor="@color/kresna_cream"/>
-        <LinearLayout
+            android:textStyle="bold" />
+
+        <GridLayout
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:columnCount="2">
+
             <Button
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
                 android:id="@+id/btn_learn_number"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_margin="4dp"
-                android:text="Learn Number"/>
+                android:text="Learn Number"
+                android:layout_marginRight="4dp"/>
+
             <Button
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
                 android:id="@+id/btn_learn_addition"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_margin="4dp"
-                android:text="Learn Addition"/>
-        </LinearLayout>
+                android:text="Learn Addition"
+                android:layout_marginLeft="4dp"/>
+
+            <Button
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:id="@+id/btn_learn_substraction"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="Learn Substraction"
+                android:layout_marginRight="4dp"/>
+
+            <Button
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:id="@+id/btn_learn_multiply"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="Learn Multiplication"
+                android:layout_marginLeft="4dp"/>
+        </GridLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-            <Button
-                android:id="@+id/btn_learn_substraction"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="4dp"
-                android:text="Learn Substraction"/>
-            <Button
-                android:id="@+id/btn_learn_multiply"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="4dp"
-                android:text="Learn Multiplication"/>
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
         </LinearLayout>
 
         <Button
@@ -71,13 +89,14 @@
             android:layout_height="100dp"
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
-            android:text="Social Experiment"/>
+            android:text="Social Experiment" />
+
         <Button
             android:id="@+id/btn_quiz"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
-            android:text="Quiz"/>
+            android:text="Quiz" />
     </LinearLayout>
 </FrameLayout>
