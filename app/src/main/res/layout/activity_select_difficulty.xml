@@ -4,39 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/black"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".SelectDifficultyActivity">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/kresna_cream"
-        android:text="Pilih Tingkat Kesulitan"/>
-    <LinearLayout
+        android:text="Isi nama kamu: "
+        android:textColor="@color/kresna_cream" />
+
+    <EditText
+        android:id="@+id/et_nama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:paddingRight="24dp"
-        android:paddingLeft="24dp">
-        <Button
-            android:id="@+id/btn_easy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:text="easy"/>
-        <Button
-            android:id="@+id/btn_medium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:text="medium"/>
-        <Button
-            android:id="@+id/btn_hard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:text="hard"/>
-    </LinearLayout>
+        android:background="@color/kresna_cream"
+        android:textAlignment="center"
+        android:hint="nama"
+        android:layout_margin="4dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pilih tingkat kesulitan: "
+        android:textColor="@color/kresna_cream"
+        android:layout_marginTop="24dp"/>
+
+    <Button
+        android:id="@+id/btn_easy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="@string/easy" />
+
+    <Button
+        android:id="@+id/btn_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="@string/medium" />
+
+    <Button
+        android:id="@+id/btn_hard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="@string/hard" />
+
 </LinearLayout>

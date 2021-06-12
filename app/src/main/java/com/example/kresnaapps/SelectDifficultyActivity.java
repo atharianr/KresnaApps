@@ -6,14 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import com.example.kresnaapps.databinding.ActivityLearnNumberBinding;
+import android.widget.Toast;
 import com.example.kresnaapps.databinding.ActivitySelectDifficultyBinding;
 
 public class SelectDifficultyActivity extends AppCompatActivity {
 
     private ActivitySelectDifficultyBinding binding;
-    private String difficulty;
+    private String difficulty, nama;
     private int category;
 
     @Override
@@ -29,18 +28,23 @@ public class SelectDifficultyActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button button = (Button) view;
                 difficulty = button.getText().toString();
-                if (category == 1) {
-                    intentNumber();
-                } else if (category == 2) {
-                    intentAdd();
-                } else if (category == 3) {
-                    intentSubstract();
-                } else if (category == 4) {
-                    intentMultiply();
-                } else if (category == 5) {
-                    intentSocial();
-                } else if (category == 6) {
-                    intentQuiz();
+                nama = binding.etNama.getText().toString();
+                if (nama.isEmpty() || nama.length() == 0 || nama == null || nama.matches("")){
+                    Toast.makeText(SelectDifficultyActivity.this, "Isi nama kamu", Toast.LENGTH_SHORT).show();
+                } else{
+                    if (category == 1) {
+                        intentNumber();
+                    } else if (category == 2) {
+                        intentAdd();
+                    } else if (category == 3) {
+                        intentSubstract();
+                    } else if (category == 4) {
+                        intentMultiply();
+                    } else if (category == 5) {
+                        intentSocial();
+                    } else if (category == 6) {
+                        intentQuiz();
+                    }
                 }
             }
         });
@@ -50,18 +54,23 @@ public class SelectDifficultyActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button button = (Button) view;
                 difficulty = button.getText().toString();
-                if (category == 1) {
-                    intentNumber();
-                } else if (category == 2) {
-                    intentAdd();
-                } else if (category == 3) {
-                    intentSubstract();
-                } else if (category == 4) {
-                    intentMultiply();
-                } else if (category == 5) {
-                    intentSocial();
-                } else if (category == 6) {
-                    intentQuiz();
+                nama = binding.etNama.getText().toString();
+                if (nama.isEmpty() || nama.length() == 0 || nama == null || nama.matches("")) {
+                    Toast.makeText(SelectDifficultyActivity.this, "Isi nama kamu", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (category == 1) {
+                        intentNumber();
+                    } else if (category == 2) {
+                        intentAdd();
+                    } else if (category == 3) {
+                        intentSubstract();
+                    } else if (category == 4) {
+                        intentMultiply();
+                    } else if (category == 5) {
+                        intentSocial();
+                    } else if (category == 6) {
+                        intentQuiz();
+                    }
                 }
             }
         });
@@ -71,18 +80,23 @@ public class SelectDifficultyActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button button = (Button) view;
                 difficulty = button.getText().toString();
-                if (category == 1) {
-                    intentNumber();
-                } else if (category == 2) {
-                    intentAdd();
-                } else if (category == 3) {
-                    intentSubstract();
-                } else if (category == 4) {
-                    intentMultiply();
-                } else if (category == 5) {
-                    intentSocial();
-                } else if (category == 6) {
-                    intentQuiz();
+                nama = binding.etNama.getText().toString();
+                if (nama.isEmpty() || nama.length() == 0 || nama == null || nama.matches("")) {
+                    Toast.makeText(SelectDifficultyActivity.this, "Isi nama kamu", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (category == 1) {
+                        intentNumber();
+                    } else if (category == 2) {
+                        intentAdd();
+                    } else if (category == 3) {
+                        intentSubstract();
+                    } else if (category == 4) {
+                        intentMultiply();
+                    } else if (category == 5) {
+                        intentSocial();
+                    } else if (category == 6) {
+                        intentQuiz();
+                    }
                 }
             }
         });
@@ -92,6 +106,7 @@ public class SelectDifficultyActivity extends AppCompatActivity {
         Intent intent = new Intent(SelectDifficultyActivity.this, LearnNumberActivity.class);
         intent.putExtra("DIFFICULTY", difficulty);
         intent.putExtra("CATEGORY", category);
+        intent.putExtra("NAMA", nama);
         startActivity(intent);
         finish();
     }
@@ -100,6 +115,7 @@ public class SelectDifficultyActivity extends AppCompatActivity {
         Intent intent = new Intent(SelectDifficultyActivity.this, LearnAdditionActivity.class);
         intent.putExtra("DIFFICULTY", difficulty);
         intent.putExtra("CATEGORY", category);
+        intent.putExtra("NAMA", nama);
         startActivity(intent);
         finish();
     }
@@ -108,6 +124,7 @@ public class SelectDifficultyActivity extends AppCompatActivity {
         Intent intent = new Intent(SelectDifficultyActivity.this, LearnSubstractionActivity.class);
         intent.putExtra("DIFFICULTY", difficulty);
         intent.putExtra("CATEGORY", category);
+        intent.putExtra("NAMA", nama);
         startActivity(intent);
         finish();
     }
@@ -116,6 +133,7 @@ public class SelectDifficultyActivity extends AppCompatActivity {
         Intent intent = new Intent(SelectDifficultyActivity.this, LearnMultiplicationActivity.class);
         intent.putExtra("DIFFICULTY", difficulty);
         intent.putExtra("CATEGORY", category);
+        intent.putExtra("NAMA", nama);
         startActivity(intent);
         finish();
     }
@@ -124,6 +142,7 @@ public class SelectDifficultyActivity extends AppCompatActivity {
         Intent intent = new Intent(SelectDifficultyActivity.this, LearnSocialActivity.class);
         intent.putExtra("DIFFICULTY", difficulty);
         intent.putExtra("CATEGORY", category);
+        intent.putExtra("NAMA", nama);
         startActivity(intent);
         finish();
     }
@@ -132,6 +151,7 @@ public class SelectDifficultyActivity extends AppCompatActivity {
         Intent intent = new Intent(SelectDifficultyActivity.this, LearnQuizActivity.class);
         intent.putExtra("DIFFICULTY", difficulty);
         intent.putExtra("CATEGORY", category);
+        intent.putExtra("NAMA", nama);
         startActivity(intent);
         finish();
     }

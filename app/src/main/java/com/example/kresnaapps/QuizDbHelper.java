@@ -99,9 +99,9 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
     private void fillQuestionTable() {
         // LEARN NUMBER - EASY
-        Question qne1 = new Question("2", "1", "2", "3", "4", "2", Question.DIFFICULTY_EASY, Category.LEARN_NUMBERS);
+        Question qne1 = new Question("2", String.valueOf(R.drawable.kelereng_dua), String.valueOf(R.drawable.kelereng), String.valueOf(R.drawable.kelereng), String.valueOf(R.drawable.kelereng), String.valueOf(R.drawable.kelereng_dua), Question.DIFFICULTY_EASY, Category.LEARN_NUMBERS);
         addQuestion(qne1);
-        Question qne2 = new Question("3", "1", "2", "3", "4", "3", Question.DIFFICULTY_EASY, Category.LEARN_NUMBERS);
+        Question qne2 = new Question("1", String.valueOf(R.drawable.kelereng_dua), String.valueOf(R.drawable.kelereng_dua), String.valueOf(R.drawable.kelereng_dua), String.valueOf(R.drawable.kelereng), String.valueOf(R.drawable.kelereng), Question.DIFFICULTY_EASY, Category.LEARN_NUMBERS);
         addQuestion(qne2);
 
         // LEARN NUMBER - MEDIUM
