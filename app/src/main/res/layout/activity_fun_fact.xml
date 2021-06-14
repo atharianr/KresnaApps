@@ -1,119 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".FunFactActivity">
 
     <ImageView
+        android:id="@+id/iv_kresna_logo"
+        android:layout_width="96dp"
+        android:layout_height="32.26dp"
+        android:layout_margin="24dp"
+        android:src="@drawable/kresna_logo" />
+
+    <ImageButton
+        android:id="@+id/btn_play_audio"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="24dp"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/sound"
+        android:scaleType="centerInside"/>
+    
+    <ImageView
+        android:layout_width="96dp"
+        android:layout_height="174dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/wayang"
+        android:scaleType="centerInside"/>
+
+    <TextView
+        android:id="@+id/tv_array_salah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Array: 0"
+        android:textColor="@color/kresna_cream"/>
+
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background_hitam_wayang"></ImageView>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="36dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/tv_nama_score"
-            android:text="Nilai "
-            android:textAlignment="textEnd"
-            android:textColor="@color/kresna_cream"
-            android:textSize="16dp" />
-
-        <TextView
-            android:id="@+id/tv_nama_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@id/tv_adalah_score"
-            android:text="Nama"
-            android:textStyle="bold"
-            android:textAlignment="textEnd"
-            android:textColor="@color/kresna_cream"
-            android:textSize="16dp" />
-
-        <TextView
-            android:id="@+id/tv_adalah_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:text=" adalah"
-            android:textAlignment="textEnd"
-            android:textColor="@color/kresna_cream"
-            android:textSize="16dp" />
-
-        <TextView
-            android:id="@+id/tv_nilai_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_nama_score"
-            android:layout_alignParentEnd="true"
-            android:text="8/10"
-            android:textAlignment="textEnd"
-            android:textColor="@color/kresna_cream"
-            android:textSize="48dp"
-            android:textStyle="bold" />
+        android:layout_below="@+id/iv_kresna_logo"
+        android:columnCount="2"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="36dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_funfact"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_nilai_score"
-            android:layout_marginTop="36dp"
+            android:layout_marginRight="16dp"
             app:cardBackgroundColor="@color/kresna_cream"
-            app:cardCornerRadius="12dp">
+            app:cardCornerRadius="12dp"
+            android:layout_columnWeight="3">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="24dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="144dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/funfact_rencang" />
+                android:layout_height="match_parent">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="144dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/funfact_rencang" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Judul"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Judul"
-                        android:textColor="@color/black"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-
-                    <ImageButton
-                        android:id="@+id/btn_play_audio"
-                        android:layout_width="12dp"
-                        android:layout_height="12dp"
-                        android:layout_below="@id/cv_funfact"
-                        android:layout_marginLeft="4dp"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/ic_baseline_play_arrow_24" />
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="4dp"
+                        android:text="Rencong atau yang dalam Bahasa Aceh yang ditulis dengan huruf latin dibaca Rintjong adalah senjata khas Suku Aceh. Rencong merupakan simbol identitas diri, keberanian, dan ketangguhan Suku Aceh. Ada beberapa jenis rencong. Pertama Rencong Pudoi yaitu Rencong yang belum sempurna pada bentuk gagangnya." />
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="4dp"
-                    android:text="Rencong atau yang dalam Bahasa Aceh yang ditulis dengan huruf latin dibaca Rintjong adalah senjata khas Suku Aceh. Rencong merupakan simbol identitas diri, keberanian, dan ketangguhan Suku Aceh. Ada beberapa jenis rencong. Pertama Rencong Pudoi yaitu Rencong yang belum sempurna pada bentuk gagangnya." />
-            </LinearLayout>
+            </ScrollView>
         </androidx.cardview.widget.CardView>
-    </RelativeLayout>
-</FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_info_score"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1">
+
+            <TextView
+                android:id="@+id/tv_adalah_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:text="Nilai Nama adalah"
+                android:textAlignment="textEnd"
+                android:textColor="@color/kresna_cream"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_nilai_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/tv_adalah_score"
+                android:text="8/10"
+                android:textAlignment="textEnd"
+                android:textColor="@color/kresna_cream"
+                android:textSize="48dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </GridLayout>
+
+</RelativeLayout>

@@ -3,13 +3,22 @@ package com.example.kresnaapps;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
+
 import com.example.kresnaapps.databinding.ActivityLearnNumberBinding;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -17,8 +26,9 @@ public class LearnNumberActivity extends AppCompatActivity {
     private ActivityLearnNumberBinding binding;
 
     private List<Question> questionList;
+    private List<Integer> arraySalah;
     private Question currentQuestion;
-    private int questionCounter, questionCountTotal, score, category;
+    private int questionCounter, questionCountTotal, score, category, salah;
     private String selectedAnswer, difficulty, nama;
 
     @Override
@@ -26,11 +36,15 @@ public class LearnNumberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityLearnNumberBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         difficulty = getIntent().getExtras().getString("DIFFICULTY");
         category = getIntent().getExtras().getInt("CATEGORY", 0);
         nama = getIntent().getExtras().getString("NAMA");
+
+        arraySalah = new ArrayList<Integer>();
 
         //QuizDbHelper dbHelper = new QuizDbHelper(this);
         QuizDbHelper dbHelper = QuizDbHelper.getInstance(this);
@@ -82,11 +96,8 @@ public class LearnNumberActivity extends AppCompatActivity {
 
     private void checkAnswer() {
 
-        binding.btnOption1.setEnabled(false);
-        binding.btnOption2.setEnabled(false);
-        binding.btnOption3.setEnabled(false);
-        binding.btnOption4.setEnabled(false);
-        binding.btnLanjut.setVisibility(View.VISIBLE);
+        binding.tvSalah.setText("Salah: " + salah);
+
         binding.btnLanjut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,18 +109,33 @@ public class LearnNumberActivity extends AppCompatActivity {
             Toast.makeText(LearnNumberActivity.this, "Benar!", Toast.LENGTH_SHORT).show();
             score++;
             binding.tvScore.setText("Score: " + score);
+
+            binding.btnOption1.setEnabled(false);
+            binding.btnOption2.setEnabled(false);
+            binding.btnOption3.setEnabled(false);
+            binding.btnOption4.setEnabled(false);
+            binding.btnLanjut.setVisibility(View.VISIBLE);
+
+            arraySalah.add(salah);
+            binding.tvArraySalah.setText("Array Salah: " + arraySalah.toString());
+
+            showSolution();
         } else {
+            salah++;
             Toast.makeText(LearnNumberActivity.this, "Salah!", Toast.LENGTH_SHORT).show();
             binding.tvScore.setText("Score: " + score);
+            binding.tvSalah.setText("Salah: " + salah);
         }
-
-        showSolution();
     }
 
     @SuppressLint("ResourceType")
     private void showNextQuestion() {
 
         if (questionCounter < questionCountTotal) {
+
+            salah = 0;
+            binding.tvSalah.setText("Salah: " + salah);
+            binding.tvArraySalah.setText("Array Salah: " + arraySalah.toString());
 
             binding.btnOption1.setEnabled(true);
             binding.btnOption2.setEnabled(true);
@@ -123,9 +149,7 @@ public class LearnNumberActivity extends AppCompatActivity {
 
             currentQuestion = questionList.get(questionCounter);
             binding.tvSoal.setText(currentQuestion.getQuestion());
-            /*Glide.with(LearnNumberActivity.this)
-                    .load(Integer.valueOf(currentQuestion.getQuestion()))
-                    .into(binding.ivSoal);*/
+
             Log.d("questionnya", currentQuestion.getQuestion());
 
             // Set TAG buat cek jawaban
@@ -148,16 +172,17 @@ public class LearnNumberActivity extends AppCompatActivity {
             intent.putExtra("DIFFICULTY", difficulty);
             intent.putExtra("CATEGORY", category);
             intent.putExtra("NAMA", nama);
+            intent.putExtra("ARRAY_SALAH", (Serializable) arraySalah);
             startActivity(intent);
             finish();
         }
     }
 
     private void showSolution() {
-        binding.btnOption1Indicator.setBackgroundColor(Color.RED);
-        binding.btnOption2Indicator.setBackgroundColor(Color.RED);
-        binding.btnOption3Indicator.setBackgroundColor(Color.RED);
-        binding.btnOption4Indicator.setBackgroundColor(Color.RED);
+        binding.btnOption1Indicator.setBackgroundColor(Color.parseColor("#B64A44"));
+        binding.btnOption2Indicator.setBackgroundColor(Color.parseColor("#B64A44"));
+        binding.btnOption3Indicator.setBackgroundColor(Color.parseColor("#B64A44"));
+        binding.btnOption4Indicator.setBackgroundColor(Color.parseColor("#B64A44"));
 
         String btn1str, btn2str, btn3str, btn4str;
 
@@ -167,13 +192,27 @@ public class LearnNumberActivity extends AppCompatActivity {
         btn4str = String.valueOf(binding.btnOption4.getTag());
 
         if (btn1str.equals(currentQuestion.getAnswerStr())) {
-            binding.btnOption1Indicator.setBackgroundColor(Color.GREEN);
+            binding.btnOption1Indicator.setBackgroundColor(Color.parseColor("#5EAE5E"));
         } else if (btn2str.equals(currentQuestion.getAnswerStr())) {
-            binding.btnOption2Indicator.setBackgroundColor(Color.GREEN);
+            binding.btnOption2Indicator.setBackgroundColor(Color.parseColor("#5EAE5E"));
         } else if (btn3str.equals(currentQuestion.getAnswerStr())) {
-            binding.btnOption3Indicator.setBackgroundColor(Color.GREEN);
+            binding.btnOption3Indicator.setBackgroundColor(Color.parseColor("#5EAE5E"));
         } else if (btn4str.equals(currentQuestion.getAnswerStr())) {
-            binding.btnOption4Indicator.setBackgroundColor(Color.GREEN);
+            binding.btnOption4Indicator.setBackgroundColor(Color.parseColor("#5EAE5E"));
         }
+    }
+
+    private void openDialog() {
+        final Dialog dialog = new Dialog(LearnNumberActivity.this);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.activity_dialog_box);
+        dialog.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        openDialog();
+        return;
     }
 }

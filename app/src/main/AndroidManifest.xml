@@ -4,26 +4,66 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/kresna_logo_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/kresna_logo_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.KresnaApps">
-        <activity android:name=".FunFactActivity"></activity>
-        <activity android:name=".LearnQuizActivity" />
-        <activity android:name=".LearnSocialActivity" />
-        <activity android:name=".LearnMultiplicationActivity" />
-        <activity android:name=".LearnSubstractionActivity" />
-        <activity android:name=".LearnAdditionActivity" />
-        <activity android:name=".SelectDifficultyActivity" />
-        <activity android:name=".LearnNumberActivity" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".AboutAppActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape"></activity>
+        <activity android:name=".DialogBox" />
+        <activity
+            android:name=".IsiNamaActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".SplashActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".FunFactActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LearnQuizActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LearnSocialActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LearnMultiplicationActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LearnSubstractionActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LearnAdditionActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".SelectDifficultyActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LearnNumberActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

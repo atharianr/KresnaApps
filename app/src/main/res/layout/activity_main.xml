@@ -1,102 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
     <ImageView
+        android:layout_width="96dp"
+        android:layout_height="174dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/wayang"
+        android:scaleType="centerInside"/>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background_hitam_wayang" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="36dp"
-            android:text="KRESNA"
-            android:textColor="@color/kresna_cream"
-            android:textSize="54dp"
-            android:textStyle="bold" />
+        android:paddingLeft="36dp"
+        android:paddingRight="36dp">
 
         <GridLayout
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:columnCount="2">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
-            <Button
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:id="@+id/btn_learn_number"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:text="Learn Number"
-                android:layout_marginRight="4dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selamat Datang di Kresna"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:textColor="@color/kresna_cream"
+                android:layout_gravity="center_horizontal"/>
 
-            <Button
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:rowCount="1"
+                android:columnCount="4"
                 android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:id="@+id/btn_learn_addition"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:text="Learn Addition"
-                android:layout_marginLeft="4dp"/>
+                android:layout_columnWeight="1">
 
-            <Button
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:id="@+id/btn_learn_substraction"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:text="Learn Substraction"
-                android:layout_marginRight="4dp"/>
+                <ImageButton
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:id="@+id/btn_learn_number"
+                    android:layout_width="1dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/rounded_button_kresna_cream"
+                    android:src="@drawable/number_icon"
+                    android:scaleType="centerInside"
+                    android:text="Learn Number"
+                    android:layout_margin="12dp"/>
 
-            <Button
+                <ImageButton
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:id="@+id/btn_learn_addition"
+                    android:layout_width="1dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/rounded_button_kresna_cream"
+                    android:src="@drawable/add_icon"
+                    android:scaleType="centerInside"
+                    android:layout_margin="12dp"/>
+
+                <ImageButton
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:id="@+id/btn_learn_substraction"
+                    android:layout_width="1dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/rounded_button_kresna_cream"
+                    android:src="@drawable/subs_icon"
+                    android:scaleType="centerInside"
+                    android:layout_margin="12dp"/>
+
+                <ImageButton
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:id="@+id/btn_learn_multiply"
+                    android:layout_width="1dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/rounded_button_kresna_cream"
+                    android:src="@drawable/add_icon"
+                    android:scaleType="centerInside"
+                    android:layout_margin="12dp"/>
+            </GridLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
                 android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:id="@+id/btn_learn_multiply"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:text="Learn Multiplication"
-                android:layout_marginLeft="4dp"/>
+                android:layout_columnWeight="1">
+                <ImageButton
+                    android:id="@+id/btn_social"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="12dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/rounded_button_kresna_cream"
+                    android:src="@drawable/social_icon"
+                    android:scaleType="centerInside"
+                    android:text="Social Experiment" />
+
+                <ImageButton
+                    android:id="@+id/btn_quiz"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="12dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/rounded_button_kresna_cream"
+                    android:src="@drawable/quiz_icon"
+                    android:scaleType="centerInside"
+                    android:text="Quiz" />
+            </GridLayout>
         </GridLayout>
+    </ScrollView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_social"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:text="Social Experiment" />
-
-        <Button
-            android:id="@+id/btn_quiz"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:text="Quiz" />
-    </LinearLayout>
-</FrameLayout>
+    <ImageButton
+        android:id="@+id/btn_logo"
+        android:layout_width="96dp"
+        android:layout_height="32.26dp"
+        android:layout_margin="24dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/kresna_logo"
+        android:scaleType="centerInside"/>
+</RelativeLayout>

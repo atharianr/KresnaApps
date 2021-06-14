@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="kresna_cream">#FFFCDB</color>
+    <color name="kresna_cream_darker">#ACAA92</color>
 </resources>

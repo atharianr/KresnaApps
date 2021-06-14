@@ -3,8 +3,11 @@ package com.example.kresnaapps;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
+
 import com.example.kresnaapps.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +20,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        binding.btnLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intentKeAbout();
+            }
+        });
 
         binding.btnLearnNumber.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,9 +80,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void intentPakeData(){
+    private void intentPakeData() {
         Intent intent = new Intent(MainActivity.this, SelectDifficultyActivity.class);
         intent.putExtra("CATEGORY", category);
+        startActivity(intent);
+    }
+
+    private void intentKeAbout() {
+        Intent intent = new Intent(MainActivity.this, AboutAppActivity.class);
         startActivity(intent);
     }
 }
