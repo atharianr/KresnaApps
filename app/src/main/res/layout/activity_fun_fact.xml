@@ -49,6 +49,20 @@
         android:layout_marginRight="36dp"
         android:layout_marginBottom="36dp">
 
+        <RelativeLayout
+            android:id="@+id/rl_info_score"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_nilai"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/nilai_per_soal_row"/>
+        </RelativeLayout>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_funfact"
             android:layout_width="100dp"
@@ -99,37 +113,6 @@
                 </LinearLayout>
             </ScrollView>
         </androidx.cardview.widget.CardView>
-
-        <RelativeLayout
-            android:id="@+id/rl_info_score"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1">
-
-            <TextView
-                android:id="@+id/tv_adalah_score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:text="Nilai Nama adalah"
-                android:textAlignment="textEnd"
-                android:textColor="@color/kresna_cream"
-                android:textSize="16dp" />
-
-            <TextView
-                android:id="@+id/tv_nilai_score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@+id/tv_adalah_score"
-                android:text="8/10"
-                android:textAlignment="textEnd"
-                android:textColor="@color/kresna_cream"
-                android:textSize="48dp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
     </GridLayout>
 
 </RelativeLayout>

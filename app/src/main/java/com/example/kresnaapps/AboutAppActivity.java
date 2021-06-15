@@ -61,4 +61,10 @@ public class AboutAppActivity extends AppCompatActivity {
             mediaPlayer.start();
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        stopPlaying();
+    }
 }

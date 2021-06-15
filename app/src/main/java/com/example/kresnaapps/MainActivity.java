@@ -24,6 +24,13 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        binding.btnLearnNumber.setEnabled(true);
+        binding.btnLearnAddition.setEnabled(false);
+        binding.btnLearnSubstraction.setEnabled(false);
+        binding.btnLearnMultiply.setEnabled(false);
+        binding.btnSocial.setEnabled(false);
+        binding.btnQuiz.setEnabled(false);
+
         binding.btnLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

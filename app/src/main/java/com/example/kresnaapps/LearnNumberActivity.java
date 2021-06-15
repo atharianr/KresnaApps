@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -23,12 +24,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class LearnNumberActivity extends AppCompatActivity {
-    private ActivityLearnNumberBinding binding;
 
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String LEVEL_NUMBER = "levelNumber";
+
+    private ActivityLearnNumberBinding binding;
     private List<Question> questionList;
-    private List<Integer> arraySalah;
+    private ArrayList<Integer> arraySalah;
     private Question currentQuestion;
-    private int questionCounter, questionCountTotal, score, category, salah;
+    private int questionCounter, questionCountTotal, score, category, salah, levelNumber;
     private String selectedAnswer, difficulty, nama;
 
     @Override
@@ -43,6 +47,7 @@ public class LearnNumberActivity extends AppCompatActivity {
         difficulty = getIntent().getExtras().getString("DIFFICULTY");
         category = getIntent().getExtras().getInt("CATEGORY", 0);
         nama = getIntent().getExtras().getString("NAMA");
+        ambilSharedPrefs();
 
         arraySalah = new ArrayList<Integer>();
 
@@ -173,8 +178,24 @@ public class LearnNumberActivity extends AppCompatActivity {
             intent.putExtra("CATEGORY", category);
             intent.putExtra("NAMA", nama);
             intent.putExtra("ARRAY_SALAH", (Serializable) arraySalah);
-            startActivity(intent);
-            finish();
+
+            if (difficulty.equals("easy") && levelNumber < 1) {
+                levelNumber++;
+                Toast.makeText(LearnNumberActivity.this, String.valueOf(levelNumber), Toast.LENGTH_SHORT).show();
+                saveSharedPrefs();
+                startActivity(intent);
+                finish();
+            } else if (difficulty.equals("medium") && levelNumber < 2) {
+                levelNumber++;
+                Toast.makeText(LearnNumberActivity.this, String.valueOf(levelNumber), Toast.LENGTH_SHORT).show();
+                saveSharedPrefs();
+                startActivity(intent);
+                finish();
+            } else {
+                Toast.makeText(LearnNumberActivity.this, String.valueOf(levelNumber), Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+                finish();
+            }
         }
     }
 
@@ -214,5 +235,19 @@ public class LearnNumberActivity extends AppCompatActivity {
     public void onBackPressed() {
         openDialog();
         return;
+    }
+
+    private void saveSharedPrefs() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt(LEVEL_NUMBER, levelNumber);
+        editor.apply();
+    }
+
+    private void ambilSharedPrefs() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        levelNumber = sharedPreferences.getInt(LEVEL_NUMBER, 0);
+        Toast.makeText(LearnNumberActivity.this, String.valueOf(levelNumber), Toast.LENGTH_SHORT).show();
     }
 }

@@ -105,15 +105,15 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         addQuestion(qne2);
 
         // LEARN NUMBER - MEDIUM
-        Question qnm1 = new Question("29", "29", "2", "3", "4", "29", Question.DIFFICULTY_MEDIUM, Category.LEARN_NUMBERS);
-        addQuestion(qnm1);
-        Question qnm2 = new Question("43", "1", "2", "43", "4", "43", Question.DIFFICULTY_MEDIUM, Category.LEARN_NUMBERS);
-        addQuestion(qnm2);
+        Question qme1 = new Question("2", String.valueOf(R.drawable.kelereng_dua), String.valueOf(R.drawable.kelereng), String.valueOf(R.drawable.kelereng), String.valueOf(R.drawable.kelereng), String.valueOf(R.drawable.kelereng_dua), Question.DIFFICULTY_MEDIUM, Category.LEARN_NUMBERS);
+        addQuestion(qme1);
+        Question qme2 = new Question("1", String.valueOf(R.drawable.kelereng_dua), String.valueOf(R.drawable.kelereng_dua), String.valueOf(R.drawable.kelereng_dua), String.valueOf(R.drawable.kelereng), String.valueOf(R.drawable.kelereng), Question.DIFFICULTY_MEDIUM, Category.LEARN_NUMBERS);
+        addQuestion(qme2);
 
         // LEARN NUMBER - HARD
-        Question qnh1 = new Question("294", "1", "294", "3", "4", "294", Question.DIFFICULTY_HARD, Category.LEARN_NUMBERS);
+        Question qnh1 = new Question("2", String.valueOf(R.drawable.kelereng_dua), String.valueOf(R.drawable.kelereng), String.valueOf(R.drawable.kelereng), String.valueOf(R.drawable.kelereng), String.valueOf(R.drawable.kelereng_dua), Question.DIFFICULTY_HARD, Category.LEARN_NUMBERS);
         addQuestion(qnh1);
-        Question qnh2 = new Question("431", "431", "2", "3", "4", "431", Question.DIFFICULTY_HARD, Category.LEARN_NUMBERS);
+        Question qnh2 = new Question("1", String.valueOf(R.drawable.kelereng_dua), String.valueOf(R.drawable.kelereng_dua), String.valueOf(R.drawable.kelereng_dua), String.valueOf(R.drawable.kelereng), String.valueOf(R.drawable.kelereng), Question.DIFFICULTY_HARD, Category.LEARN_NUMBERS);
         addQuestion(qnh2);
 
         // ADDITION - EASY

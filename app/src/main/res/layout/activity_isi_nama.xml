@@ -45,11 +45,11 @@
 
     <Button
         android:id="@+id/btn_mulai"
-        android:layout_width="216dp"
-        android:layout_height="wrap_content"
+        android:layout_width="256dp"
+        android:layout_height="36dp"
         android:layout_centerHorizontal="true"
         android:layout_margin="36dp"
-        android:background="@drawable/rounded_button_kresna_cream"
+        android:background="@drawable/rounded_button_full_kresna_cream"
         android:textAllCaps="false"
         android:text="Mulai"
         android:layout_below="@id/et_nama"/>

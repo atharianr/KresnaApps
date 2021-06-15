@@ -1,6 +1,8 @@
 package com.example.kresnaapps;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -10,6 +12,7 @@ import android.view.WindowManager;
 
 import com.example.kresnaapps.databinding.ActivityFunFactBinding;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +23,9 @@ public class FunFactActivity extends AppCompatActivity {
     private int score, category, mediaPlayerState;
     private String difficulty, nama;
     private MediaPlayer mediaPlayer;
-    private List<Integer> arraySalah;
+    private ArrayList<Integer> arraySalah;
+    private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView.Adapter salahAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +42,12 @@ public class FunFactActivity extends AppCompatActivity {
         nama = getIntent().getExtras().getString("NAMA");
 
         //arraySalah = new ArrayList<Integer>();
-        arraySalah = (List<Integer>) getIntent().getSerializableExtra("ARRAY_SALAH");
+        arraySalah = (ArrayList<Integer>) getIntent().getSerializableExtra("ARRAY_SALAH");
 
         QuizDbHelper dbHelper = QuizDbHelper.getInstance(this);
         questionList = dbHelper.getQuestion(category, difficulty);
 
         binding.tvArraySalah.setText("Array: " + arraySalah.toString());
-        binding.tvAdalahScore.setText("Nilai " + nama + " adalah");
-        binding.tvNilaiScore.setText(String.valueOf(score) + "/" + String.valueOf(questionList.size()));
 
         mediaPlayerState = 0;
         binding.btnPlayAudio.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +62,12 @@ public class FunFactActivity extends AppCompatActivity {
                 }
             }
         });
+
+        binding.rvNilai.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        salahAdapter = new SalahAdapter(arraySalah);
+        binding.rvNilai.setLayoutManager(layoutManager);
+        binding.rvNilai.setAdapter(salahAdapter);
 
     }
 
@@ -83,5 +92,10 @@ public class FunFactActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(FunFactActivity.this, MainActivity.class);
         startActivity(intent);
+    }
+
+    private void intentDataKeAdapter(){
+        Intent intent = new Intent(FunFactActivity.this, SalahAdapter.class);
+        intent.putExtra("ARRAY_SALAH", (Serializable) arraySalah);
     }
 }
