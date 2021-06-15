@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         binding.btnLearnNumber.setEnabled(true);
-        binding.btnLearnAddition.setEnabled(false);
+        binding.btnLearnAddition.setEnabled(true);
         binding.btnLearnSubstraction.setEnabled(false);
         binding.btnLearnMultiply.setEnabled(false);
         binding.btnSocial.setEnabled(false);

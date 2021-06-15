@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KresnaApps">
         <activity
-            android:name=".AboutAppActivity"
+            android:name=".SoalGambarJawabanTextActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".AboutAppActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape" />
         <activity android:name=".DialogBox" />
         <activity
             android:name=".IsiNamaActivity"

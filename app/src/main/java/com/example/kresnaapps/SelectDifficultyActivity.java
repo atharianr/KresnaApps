@@ -17,6 +17,11 @@ public class SelectDifficultyActivity extends AppCompatActivity {
 
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String LEVEL_NUMBER = "levelNumber";
+    public static final String LEVEL_ADD = "levelAdd";
+    public static final String LEVEL_SUBS = "levelSubs";
+    public static final String LEVEL_MULTI = "levelMulti";
+    public static final String LEVEL_SOCIAL = "levelSocial";
+    public static final String LEVEL_QUIZ = "levelQuiz";
 
     private ActivitySelectDifficultyBinding binding;
     private String difficulty;
@@ -95,8 +100,7 @@ public class SelectDifficultyActivity extends AppCompatActivity {
                     binding.btnHard.setEnabled(true);
                     break;
             }
-        }
-        else if (category == 5) {
+        } else if (category == 5) {
             switch (levelSocial) {
                 case 0:
                     binding.btnMedium.setEnabled(false);
@@ -111,8 +115,7 @@ public class SelectDifficultyActivity extends AppCompatActivity {
                     binding.btnHard.setEnabled(true);
                     break;
             }
-        }
-        else if (category == 6) {
+        } else if (category == 6) {
             switch (levelQuiz) {
                 case 0:
                     binding.btnMedium.setEnabled(false);
@@ -134,17 +137,32 @@ public class SelectDifficultyActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button button = (Button) view;
                 difficulty = button.getText().toString();
-                intentKeNama();
+                if (category == 1) {
+                    intentKeSoalTextJawabanGambar();
+                } else if (category == 2) {
+                    intentKeSoalGambarJawabanText();
+                } else if (category == 3) {
+                } else if (category == 4) {
+                } else if (category == 5) {
+                } else if (category == 6) {
+                }
             }
         });
-
 
         binding.btnMedium.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Button button = (Button) view;
                 difficulty = button.getText().toString();
-                intentKeNama();
+                if (category == 1) {
+                    intentKeSoalTextJawabanGambar();
+                } else if (category == 2) {
+                    intentKeSoalGambarJawabanText();
+                } else if (category == 3) {
+                } else if (category == 4) {
+                } else if (category == 5) {
+                } else if (category == 6) {
+                }
             }
         });
 
@@ -153,21 +171,50 @@ public class SelectDifficultyActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button button = (Button) view;
                 difficulty = button.getText().toString();
-                intentKeNama();
+                if (category == 1) {
+                    intentKeSoalTextJawabanGambar();
+                } else if (category == 2) {
+                    intentKeSoalGambarJawabanText();
+                } else if (category == 3) {
+                } else if (category == 4) {
+                } else if (category == 5) {
+                } else if (category == 6) {
+                }
             }
         });
     }
 
-    private void intentKeNama() {
-        Intent intent = new Intent(SelectDifficultyActivity.this, IsiNamaActivity.class);
+    private void intentKeSoalTextJawabanGambar() {
+        Intent intent = new Intent(SelectDifficultyActivity.this, LearnNumberActivity.class);
         intent.putExtra("DIFFICULTY", difficulty);
         intent.putExtra("CATEGORY", category);
+        intent.putExtra("NAMA", "kamoe");
+        startActivity(intent);
+    }
+
+    private void intentKeSoalGambarJawabanText() {
+        Intent intent = new Intent(SelectDifficultyActivity.this, SoalGambarJawabanTextActivity.class);
+        intent.putExtra("DIFFICULTY", difficulty);
+        intent.putExtra("CATEGORY", category);
+        intent.putExtra("NAMA", "kamoe");
         startActivity(intent);
     }
 
     private void ambilSharedPrefs() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         levelNumber = sharedPreferences.getInt(LEVEL_NUMBER, 0);
-        Toast.makeText(SelectDifficultyActivity.this, String.valueOf(levelNumber), Toast.LENGTH_SHORT).show();
+        levelAdd = sharedPreferences.getInt(LEVEL_ADD, 0);
+        levelSubs = sharedPreferences.getInt(LEVEL_SUBS, 0);
+        levelMulti = sharedPreferences.getInt(LEVEL_MULTI, 0);
+        levelSocial = sharedPreferences.getInt(LEVEL_SOCIAL, 0);
+        levelQuiz = sharedPreferences.getInt(LEVEL_QUIZ, 0);
+        Toast.makeText(SelectDifficultyActivity.this,
+                String.valueOf(levelNumber) +
+                        String.valueOf(levelAdd) +
+                        String.valueOf(levelSubs) +
+                        String.valueOf(levelMulti) +
+                        String.valueOf(levelSocial) +
+                        String.valueOf(levelQuiz),
+                Toast.LENGTH_SHORT).show();
     }
 }

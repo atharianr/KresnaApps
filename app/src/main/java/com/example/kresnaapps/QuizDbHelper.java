@@ -117,40 +117,82 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         addQuestion(qnh2);
 
         // ADDITION - EASY
-        Question qae1 = new Question("1 + 1 =", "1", "2", "3", "4", "2", Question.DIFFICULTY_EASY, Category.LEARN_ADDITION);
+        Question qae1 = new Question(String.valueOf(R.drawable.qae1), "1", "2", "3", "4", "2", Question.DIFFICULTY_EASY, Category.LEARN_ADDITION);
         addQuestion(qae1);
-        Question qae2 = new Question("1 + 9 =", "1", "2", "3", "10", "10", Question.DIFFICULTY_EASY, Category.LEARN_ADDITION);
+        Question qae2 = new Question(String.valueOf(R.drawable.qae2), "6", "7", "8", "9", "7", Question.DIFFICULTY_EASY, Category.LEARN_ADDITION);
         addQuestion(qae2);
+        Question qae3 = new Question(String.valueOf(R.drawable.qae3), "10", "9", "8", "7", "8", Question.DIFFICULTY_EASY, Category.LEARN_ADDITION);
+        addQuestion(qae3);
+        Question qae4 = new Question(String.valueOf(R.drawable.qae4), "4", "3", "2", "1", "4", Question.DIFFICULTY_EASY, Category.LEARN_ADDITION);
+        addQuestion(qae4);
+        Question qae5 = new Question(String.valueOf(R.drawable.qae5), "3", "4", "5", "6", "6", Question.DIFFICULTY_EASY, Category.LEARN_ADDITION);
+        addQuestion(qae5);
+        Question qae6 = new Question(String.valueOf(R.drawable.qae6), "9", "10", "11", "12", "9", Question.DIFFICULTY_EASY, Category.LEARN_ADDITION);
+        addQuestion(qae6);
+        Question qae7 = new Question(String.valueOf(R.drawable.qae7), "6", "8", "10", "12", "6", Question.DIFFICULTY_EASY, Category.LEARN_ADDITION);
+        addQuestion(qae7);
+        Question qae8 = new Question(String.valueOf(R.drawable.qae8), "1", "3", "5", "7", "5", Question.DIFFICULTY_EASY, Category.LEARN_ADDITION);
+        addQuestion(qae8);
+        Question qae9 = new Question(String.valueOf(R.drawable.qae9), "8", "9", "10", "11", "9", Question.DIFFICULTY_EASY, Category.LEARN_ADDITION);
+        addQuestion(qae9);
+        Question qae10 = new Question(String.valueOf(R.drawable.qae10), "13", "12", "11", "10", "10", Question.DIFFICULTY_EASY, Category.LEARN_ADDITION);
+        addQuestion(qae10);
+
 
         // ADDITION - MEDIUM
-        Question qam1 = new Question("10 + 10 =", "1", "2", "20", "4", "20", Question.DIFFICULTY_MEDIUM, Category.LEARN_ADDITION);
+        Question qam1 = new Question(String.valueOf(R.drawable.qam1), "11", "12", "13", "14", "12", Question.DIFFICULTY_MEDIUM, Category.LEARN_ADDITION);
         addQuestion(qam1);
-        Question qam2 = new Question("10 + 32 =", "1", "2", "20", "42", "42", Question.DIFFICULTY_MEDIUM, Category.LEARN_ADDITION);
+        Question qam2 = new Question(String.valueOf(R.drawable.qam2), "10", "11", "12", "13", "11", Question.DIFFICULTY_MEDIUM, Category.LEARN_ADDITION);
         addQuestion(qam2);
+        Question qam3 = new Question(String.valueOf(R.drawable.qam3), "10", "11", "12", "13", "13", Question.DIFFICULTY_MEDIUM, Category.LEARN_ADDITION);
+        addQuestion(qam3);
+        Question qam4 = new Question(String.valueOf(R.drawable.qam4), "13", "14", "15", "16", "15", Question.DIFFICULTY_MEDIUM, Category.LEARN_ADDITION);
+        addQuestion(qam4);
+        Question qam5 = new Question(String.valueOf(R.drawable.qam5), "19", "18", "17", "16", "17", Question.DIFFICULTY_MEDIUM, Category.LEARN_ADDITION);
+        addQuestion(qam5);
 
         // ADDITION - HARD
-        Question qah1 = new Question("101 + 102 =", "1", "203", "20", "4", "203", Question.DIFFICULTY_HARD, Category.LEARN_ADDITION);
+        Question qah1 = new Question(String.valueOf(R.drawable.qah1), "23", "24", "25", "26", "23", Question.DIFFICULTY_HARD, Category.LEARN_ADDITION);
         addQuestion(qah1);
-        Question qah2 = new Question("201 + 102 =", "303", "203", "20", "4", "303", Question.DIFFICULTY_HARD, Category.LEARN_ADDITION);
+        Question qah2 = new Question(String.valueOf(R.drawable.qah2), "29", "30", "31", "32", "31", Question.DIFFICULTY_HARD, Category.LEARN_ADDITION);
         addQuestion(qah2);
+        Question qah3 = new Question(String.valueOf(R.drawable.qah3), "33", "34", "35", "36", "36", Question.DIFFICULTY_HARD, Category.LEARN_ADDITION);
+        addQuestion(qah3);
+        Question qah4 = new Question(String.valueOf(R.drawable.qah4), "36", "37", "39", "40", "37", Question.DIFFICULTY_HARD, Category.LEARN_ADDITION);
+        addQuestion(qah4);
+        Question qah5 = new Question(String.valueOf(R.drawable.qah5), "41", "51", "31", "42", "41", Question.DIFFICULTY_HARD, Category.LEARN_ADDITION);
+        addQuestion(qah5);
+
 
         // SUBSTRACTION - EASY
-        Question qse1 = new Question("2 - 1 =", "1", "2", "3", "4", "1", Question.DIFFICULTY_EASY, Category.LEARN_SUBSTRACTION);
+        Question qse1 = new Question(String.valueOf(R.drawable.qse1), "1", "2", "3", "4", "1", Question.DIFFICULTY_EASY, Category.LEARN_SUBSTRACTION);
         addQuestion(qse1);
-        Question qse2 = new Question("2 - 2 =", "1", "2", "3", "0", "0", Question.DIFFICULTY_EASY, Category.LEARN_SUBSTRACTION);
+        Question qse2 = new Question(String.valueOf(R.drawable.qse2), "1", "2", "3", "4", "1", Question.DIFFICULTY_EASY, Category.LEARN_SUBSTRACTION);
         addQuestion(qse2);
+        Question qse3 = new Question(String.valueOf(R.drawable.qse3), "1", "2", "3", "4", "1", Question.DIFFICULTY_EASY, Category.LEARN_SUBSTRACTION);
+        addQuestion(qse3);
+        Question qse4 = new Question(String.valueOf(R.drawable.qse4), "1", "2", "3", "4", "1", Question.DIFFICULTY_EASY, Category.LEARN_SUBSTRACTION);
+        addQuestion(qse4);
+        Question qse5 = new Question(String.valueOf(R.drawable.qse5), "1", "2", "3", "4", "1", Question.DIFFICULTY_EASY, Category.LEARN_SUBSTRACTION);
+        addQuestion(qse5);
+        Question qse6 = new Question(String.valueOf(R.drawable.qse6), "1", "2", "3", "4", "1", Question.DIFFICULTY_EASY, Category.LEARN_SUBSTRACTION);
+        addQuestion(qse6);
+        Question qse7 = new Question(String.valueOf(R.drawable.qse7), "1", "2", "3", "4", "1", Question.DIFFICULTY_EASY, Category.LEARN_SUBSTRACTION);
+        addQuestion(qse7);
+        Question qse8 = new Question(String.valueOf(R.drawable.qse8), "1", "2", "3", "4", "1", Question.DIFFICULTY_EASY, Category.LEARN_SUBSTRACTION);
+        addQuestion(qse8);
+        Question qse9 = new Question(String.valueOf(R.drawable.qse9), "1", "2", "3", "4", "1", Question.DIFFICULTY_EASY, Category.LEARN_SUBSTRACTION);
+        addQuestion(qse9);
+        Question qse10 = new Question(String.valueOf(R.drawable.qse10), "1", "2", "3", "4", "1", Question.DIFFICULTY_EASY, Category.LEARN_SUBSTRACTION);
+        addQuestion(qse10);
 
         // SUBSTRACTION - MEDIUM
         Question qsm1 = new Question("20 - 13 =", "7", "2", "3", "0", "7", Question.DIFFICULTY_MEDIUM, Category.LEARN_SUBSTRACTION);
         addQuestion(qsm1);
-        Question qsm2 = new Question("99 - 60 =", "39", "2", "3", "0", "39", Question.DIFFICULTY_MEDIUM, Category.LEARN_SUBSTRACTION);
-        addQuestion(qsm2);
 
         // SUBSTRACTION - HARD
         Question qsh1 = new Question("200 - 130 =", "70", "2", "3", "0", "70", Question.DIFFICULTY_MEDIUM, Category.LEARN_SUBSTRACTION);
         addQuestion(qsh1);
-        Question qsh2 = new Question("230 - 130 =", "70", "2", "3", "100", "100", Question.DIFFICULTY_MEDIUM, Category.LEARN_SUBSTRACTION);
-        addQuestion(qsh2);
 
         // MULTI - EASY
         // MULTI - MEDIUM

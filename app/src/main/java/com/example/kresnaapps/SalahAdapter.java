@@ -30,8 +30,10 @@ public class SalahAdapter extends RecyclerView.Adapter<SalahAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull SalahAdapter.ViewHolder holder, int position) {
-        holder.binding.tvSoalKe.setText("Soal - " + position + ":");
-        holder.binding.tvSalah.setText(arraySalah.get(position));
+
+        holder.binding.tvSoalKe.setText("Soal - " + (position + 1) + ": ");
+        holder.binding.tvSalah.setText(String.valueOf(arraySalah.get(position)));
+
     }
 
     @Override
