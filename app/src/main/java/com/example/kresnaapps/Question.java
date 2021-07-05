@@ -13,13 +13,10 @@ public class Question {
 
     }
 
-    public Question(String question, String option1, String option2, String option3, String option4,
-                    String answerStr, String difficulty, int categoryId) {
+    public Question(String question, String option1, String option2, String answerStr, String difficulty, int categoryId) {
         this.question = question;
         this.option1 = option1;
         this.option2 = option2;
-        this.option3 = option3;
-        this.option4 = option4;
         this.answerStr = answerStr;
         this.difficulty = difficulty;
         this.categoryId = categoryId;
@@ -55,22 +52,6 @@ public class Question {
 
     public void setOption2(String option2) {
         this.option2 = option2;
-    }
-
-    public String getOption3() {
-        return option3;
-    }
-
-    public void setOption3(String option3) {
-        this.option3 = option3;
-    }
-
-    public String getOption4() {
-        return option4;
-    }
-
-    public void setOption4(String option4) {
-        this.option4 = option4;
     }
 
     public int getAnswer() {

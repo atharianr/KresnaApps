@@ -92,6 +92,7 @@ public class FunFactActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(FunFactActivity.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void intentDataKeAdapter(){

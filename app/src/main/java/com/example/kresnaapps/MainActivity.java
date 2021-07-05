@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         binding.btnLearnNumber.setEnabled(true);
         binding.btnLearnAddition.setEnabled(true);
-        binding.btnLearnSubstraction.setEnabled(false);
-        binding.btnLearnMultiply.setEnabled(false);
+        binding.btnLearnSubstraction.setEnabled(true);
+        binding.btnLearnMultiply.setEnabled(true);
         binding.btnSocial.setEnabled(false);
         binding.btnQuiz.setEnabled(false);
 

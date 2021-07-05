@@ -29,29 +29,29 @@ public class IsiNamaActivity extends AppCompatActivity {
         category = getIntent().getExtras().getInt("CATEGORY", 0);
         difficulty = getIntent().getExtras().getString("DIFFICULTY");
 
-        binding.btnMulai.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nama = binding.etNama.getText().toString();
-                if (nama.isEmpty() || nama.length() == 0 || nama == null || nama.matches("")) {
-                    Toast.makeText(IsiNamaActivity.this, "Masukkan nama kamu", Toast.LENGTH_SHORT).show();
-                } else {
-                    if (category == 1) {
-                        intentNumber();
-                    } else if (category == 2) {
-                        intentAdd();
-                    } else if (category == 3) {
-                        intentSubstract();
-                    } else if (category == 4) {
-                        intentMultiply();
-                    } else if (category == 5) {
-                        intentSocial();
-                    } else if (category == 6) {
-                        intentQuiz();
-                    }
-                }
-            }
-        });
+//        binding.btnMulai.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                nama = binding.etNama.getText().toString();
+//                if (nama.isEmpty() || nama.length() == 0 || nama == null || nama.matches("")) {
+//                    Toast.makeText(IsiNamaActivity.this, "Masukkan nama kamu", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    if (category == 1) {
+//                        intentNumber();
+//                    } else if (category == 2) {
+//                        intentAdd();
+//                    } else if (category == 3) {
+//                        intentSubstract();
+//                    } else if (category == 4) {
+//                        intentMultiply();
+//                    } else if (category == 5) {
+//                        intentSocial();
+//                    } else if (category == 6) {
+//                        intentQuiz();
+//                    }
+//                }
+//            }
+//        });
     }
 
     private void intentNumber() {
@@ -64,54 +64,54 @@ public class IsiNamaActivity extends AppCompatActivity {
         finishAffinity();
     }
 
-    private void intentAdd() {
-        Intent intent = new Intent(getApplicationContext(), LearnAdditionActivity.class);
-        intent.putExtra("DIFFICULTY", difficulty);
-        intent.putExtra("CATEGORY", category);
-        intent.putExtra("NAMA", nama);
-        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finishAffinity();
-    }
-
-    private void intentSubstract() {
-        Intent intent = new Intent(getApplicationContext(), LearnSubstractionActivity.class);
-        intent.putExtra("DIFFICULTY", difficulty);
-        intent.putExtra("CATEGORY", category);
-        intent.putExtra("NAMA", nama);
-        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finishAffinity();
-    }
-
-    private void intentMultiply() {
-        Intent intent = new Intent(getApplicationContext(), LearnMultiplicationActivity.class);
-        intent.putExtra("DIFFICULTY", difficulty);
-        intent.putExtra("CATEGORY", category);
-        intent.putExtra("NAMA", nama);
-        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finishAffinity();
-    }
-
-    private void intentSocial() {
-        Intent intent = new Intent(getApplicationContext(), LearnSocialActivity.class);
-        intent.putExtra("DIFFICULTY", difficulty);
-        intent.putExtra("CATEGORY", category);
-        intent.putExtra("NAMA", nama);
-        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finishAffinity();
-    }
-
-    private void intentQuiz() {
-        Intent intent = new Intent(getApplicationContext(), LearnQuizActivity.class);
-        intent.putExtra("DIFFICULTY", difficulty);
-        intent.putExtra("CATEGORY", category);
-        intent.putExtra("NAMA", nama);
-        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finishAffinity();
-    }
+//    private void intentAdd() {
+//        Intent intent = new Intent(getApplicationContext(), LearnAdditionActivity.class);
+//        intent.putExtra("DIFFICULTY", difficulty);
+//        intent.putExtra("CATEGORY", category);
+//        intent.putExtra("NAMA", nama);
+//        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(intent);
+//        finishAffinity();
+//    }
+//
+//    private void intentSubstract() {
+//        Intent intent = new Intent(getApplicationContext(), LearnSubstractionActivity.class);
+//        intent.putExtra("DIFFICULTY", difficulty);
+//        intent.putExtra("CATEGORY", category);
+//        intent.putExtra("NAMA", nama);
+//        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(intent);
+//        finishAffinity();
+//    }
+//
+//    private void intentMultiply() {
+//        Intent intent = new Intent(getApplicationContext(), LearnMultiplicationActivity.class);
+//        intent.putExtra("DIFFICULTY", difficulty);
+//        intent.putExtra("CATEGORY", category);
+//        intent.putExtra("NAMA", nama);
+//        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(intent);
+//        finishAffinity();
+//    }
+//
+//    private void intentSocial() {
+//        Intent intent = new Intent(getApplicationContext(), LearnSocialActivity.class);
+//        intent.putExtra("DIFFICULTY", difficulty);
+//        intent.putExtra("CATEGORY", category);
+//        intent.putExtra("NAMA", nama);
+//        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(intent);
+//        finishAffinity();
+//    }
+//
+//    private void intentQuiz() {
+//        Intent intent = new Intent(getApplicationContext(), LearnQuizActivity.class);
+//        intent.putExtra("DIFFICULTY", difficulty);
+//        intent.putExtra("CATEGORY", category);
+//        intent.putExtra("NAMA", nama);
+//        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(intent);
+//        finishAffinity();
+//    }
 
 }

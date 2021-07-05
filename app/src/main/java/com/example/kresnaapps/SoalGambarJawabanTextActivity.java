@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,6 +41,7 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
     private int questionCounter, questionCountTotal, score, category, salah, levelNumber,
             levelAdd, levelSubs, levelMulti, levelSocial, levelQuiz;
     private String selectedAnswer, difficulty, nama;
+    private MediaPlayer mediaPlayer, mediaPlayerKategori;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,7 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
         questionList = dbHelper.getQuestion(category, difficulty);
         Collections.shuffle(questionList);
         questionCountTotal = questionList.size();
+        startPlayingKategori();
         showNextQuestion();
 
         binding.btnOption1.setOnClickListener(new View.OnClickListener() {
@@ -83,35 +86,15 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
                 checkAnswer();
             }
         });
-
-        binding.btnOption3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selectedAnswer = view.getTag().toString();
-                Log.d("ini tag", selectedAnswer);
-                Log.d("selectedAnswer", currentQuestion.getAnswerStr());
-                checkAnswer();
-            }
-        });
-
-        binding.btnOption4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selectedAnswer = view.getTag().toString();
-                Log.d("ini tag", selectedAnswer);
-                Log.d("selectedAnswer", currentQuestion.getAnswerStr());
-                checkAnswer();
-            }
-        });
     }
 
     private void checkAnswer() {
-
         binding.tvSalah.setText("Salah: " + salah);
 
         binding.btnLanjut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                stopPlaying();
                 showNextQuestion();
             }
         });
@@ -123,19 +106,21 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
 
             binding.btnOption1.setEnabled(false);
             binding.btnOption2.setEnabled(false);
-            binding.btnOption3.setEnabled(false);
-            binding.btnOption4.setEnabled(false);
             binding.btnLanjut.setVisibility(View.VISIBLE);
 
             arraySalah.add(salah);
             binding.tvArraySalah.setText("Array Salah: " + arraySalah.toString());
 
+            startPlayingBenar();
             showSolution();
+
         } else {
             salah++;
             Toast.makeText(SoalGambarJawabanTextActivity.this, "Salah!", Toast.LENGTH_SHORT).show();
             binding.tvScore.setText("Score: " + score);
             binding.tvSalah.setText("Salah: " + salah);
+
+            startPlayingSalah();
         }
     }
 
@@ -150,12 +135,8 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
 
             binding.btnOption1.setEnabled(true);
             binding.btnOption2.setEnabled(true);
-            binding.btnOption3.setEnabled(true);
-            binding.btnOption4.setEnabled(true);
             binding.btnOption1Indicator.setBackgroundColor(Color.parseColor("#FFFCDB"));
             binding.btnOption2Indicator.setBackgroundColor(Color.parseColor("#FFFCDB"));
-            binding.btnOption3Indicator.setBackgroundColor(Color.parseColor("#FFFCDB"));
-            binding.btnOption4Indicator.setBackgroundColor(Color.parseColor("#FFFCDB"));
             binding.btnLanjut.setVisibility(View.INVISIBLE);
 
             currentQuestion = questionList.get(questionCounter);
@@ -166,14 +147,10 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
             // Set TAG buat cek jawaban
             binding.btnOption1.setTag(Integer.valueOf(currentQuestion.getOption1()));
             binding.btnOption2.setTag(Integer.valueOf(currentQuestion.getOption2()));
-            binding.btnOption3.setTag(Integer.valueOf(currentQuestion.getOption3()));
-            binding.btnOption4.setTag(Integer.valueOf(currentQuestion.getOption4()));
 
             // SET TEXT JAWABAN
             binding.btnOption1.setText(currentQuestion.getOption1());
             binding.btnOption2.setText(currentQuestion.getOption2());
-            binding.btnOption3.setText(currentQuestion.getOption3());
-            binding.btnOption4.setText(currentQuestion.getOption4());
 
             questionCounter++;
 
@@ -198,24 +175,16 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
     private void showSolution() {
         binding.btnOption1Indicator.setBackgroundColor(Color.parseColor("#B64A44"));
         binding.btnOption2Indicator.setBackgroundColor(Color.parseColor("#B64A44"));
-        binding.btnOption3Indicator.setBackgroundColor(Color.parseColor("#B64A44"));
-        binding.btnOption4Indicator.setBackgroundColor(Color.parseColor("#B64A44"));
 
-        String btn1str, btn2str, btn3str, btn4str;
+        String btn1str, btn2str;
 
         btn1str = String.valueOf(binding.btnOption1.getText());
         btn2str = String.valueOf(binding.btnOption2.getText());
-        btn3str = String.valueOf(binding.btnOption3.getText());
-        btn4str = String.valueOf(binding.btnOption4.getText());
 
         if (btn1str.equals(currentQuestion.getAnswerStr())) {
             binding.btnOption1Indicator.setBackgroundColor(Color.parseColor("#5EAE5E"));
         } else if (btn2str.equals(currentQuestion.getAnswerStr())) {
             binding.btnOption2Indicator.setBackgroundColor(Color.parseColor("#5EAE5E"));
-        } else if (btn3str.equals(currentQuestion.getAnswerStr())) {
-            binding.btnOption3Indicator.setBackgroundColor(Color.parseColor("#5EAE5E"));
-        } else if (btn4str.equals(currentQuestion.getAnswerStr())) {
-            binding.btnOption4Indicator.setBackgroundColor(Color.parseColor("#5EAE5E"));
         }
     }
 
@@ -249,10 +218,39 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
     private void ambilSharedPrefs() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         levelNumber = sharedPreferences.getInt(LEVEL_NUMBER, 0);
+        levelAdd = sharedPreferences.getInt(LEVEL_ADD, 0);
+        levelSubs = sharedPreferences.getInt(LEVEL_SUBS, 0);
+        levelMulti = sharedPreferences.getInt(LEVEL_MULTI, 0);
+        levelSocial = sharedPreferences.getInt(LEVEL_SOCIAL, 0);
+        levelQuiz = sharedPreferences.getInt(LEVEL_QUIZ, 0);
         Toast.makeText(SoalGambarJawabanTextActivity.this, String.valueOf(levelNumber), Toast.LENGTH_SHORT).show();
     }
 
     private void levelUpNumber() {
+        Intent intent = new Intent(SoalGambarJawabanTextActivity.this, FunFactActivity.class);
+        intent.putExtra("SCORE", score);
+        intent.putExtra("DIFFICULTY", difficulty);
+        intent.putExtra("CATEGORY", category);
+        intent.putExtra("NAMA", nama);
+        intent.putExtra("ARRAY_SALAH", (Serializable) arraySalah);
+
+        if (difficulty.equals("easy") && levelNumber < 1) {
+            levelNumber++;
+            Toast.makeText(SoalGambarJawabanTextActivity.this, String.valueOf(levelNumber), Toast.LENGTH_SHORT).show();
+            saveSharedPrefs();
+            startActivity(intent);
+            finish();
+        } else if (difficulty.equals("medium") && levelNumber < 2) {
+            levelNumber++;
+            Toast.makeText(SoalGambarJawabanTextActivity.this, String.valueOf(levelNumber), Toast.LENGTH_SHORT).show();
+            saveSharedPrefs();
+            startActivity(intent);
+            finish();
+        } else {
+            Toast.makeText(SoalGambarJawabanTextActivity.this, String.valueOf(levelNumber), Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+            finish();
+        }
     }
 
     private void levelUpAdd() {
@@ -283,8 +281,136 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
     }
 
     private void levelUpSubs() {
+        Intent intent = new Intent(SoalGambarJawabanTextActivity.this, FunFactActivity.class);
+        intent.putExtra("SCORE", score);
+        intent.putExtra("DIFFICULTY", difficulty);
+        intent.putExtra("CATEGORY", category);
+        intent.putExtra("NAMA", nama);
+        intent.putExtra("ARRAY_SALAH", (Serializable) arraySalah);
+
+        if (difficulty.equals("easy") && levelSubs < 1) {
+            levelSubs++;
+            Toast.makeText(SoalGambarJawabanTextActivity.this, String.valueOf(levelAdd), Toast.LENGTH_SHORT).show();
+            saveSharedPrefs();
+            startActivity(intent);
+            finish();
+        } else if (difficulty.equals("medium") && levelSubs < 2) {
+            levelSubs++;
+            Toast.makeText(SoalGambarJawabanTextActivity.this, String.valueOf(levelAdd), Toast.LENGTH_SHORT).show();
+            saveSharedPrefs();
+            startActivity(intent);
+            finish();
+        } else {
+            Toast.makeText(SoalGambarJawabanTextActivity.this, String.valueOf(levelAdd), Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+            finish();
+        }
     }
 
     private void levelUpMulti() {
+        Intent intent = new Intent(SoalGambarJawabanTextActivity.this, FunFactActivity.class);
+        intent.putExtra("SCORE", score);
+        intent.putExtra("DIFFICULTY", difficulty);
+        intent.putExtra("CATEGORY", category);
+        intent.putExtra("NAMA", nama);
+        intent.putExtra("ARRAY_SALAH", (Serializable) arraySalah);
+
+        if (difficulty.equals("easy") && levelMulti < 1) {
+            levelMulti++;
+            Toast.makeText(SoalGambarJawabanTextActivity.this, String.valueOf(levelAdd), Toast.LENGTH_SHORT).show();
+            saveSharedPrefs();
+            startActivity(intent);
+            finish();
+        } else if (difficulty.equals("medium") && levelMulti < 2) {
+            levelMulti++;
+            Toast.makeText(SoalGambarJawabanTextActivity.this, String.valueOf(levelAdd), Toast.LENGTH_SHORT).show();
+            saveSharedPrefs();
+            startActivity(intent);
+            finish();
+        } else {
+            Toast.makeText(SoalGambarJawabanTextActivity.this, String.valueOf(levelAdd), Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    private void stopPlaying() {
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
+    private void startPlayingBenar() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.jawaban_benar);
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingBenar();
+        }
+    }
+
+    private void startPlayingSalah() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.jawaban_salah);
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingSalah();
+        }
+    }
+
+    private void startPlayingKategori() {
+        Toast.makeText(SoalGambarJawabanTextActivity.this, String.format("category: %d, diff: %s", category, difficulty), Toast.LENGTH_SHORT).show();
+
+        if (category == 1 && difficulty.equals("easy")) {
+            startPlayingVNE();
+        } else if (category == 1 && difficulty.equals("medium")) {
+            startPlayingVNM();
+        } else if (category == 1 && difficulty.equals("hard")) {
+            startPlayingVNH();
+        }
+    }
+
+    private void startPlayingVNE(){
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vne);
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingVNE();
+        }
+    }
+
+    private void startPlayingVNM(){
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vnm);
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingVNM();
+        }
+    }
+
+    private void startPlayingVNH(){
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vnh);
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingVNH();
+        }
     }
 }

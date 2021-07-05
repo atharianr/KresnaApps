@@ -160,14 +160,10 @@ public class LearnNumberActivity extends AppCompatActivity {
             // Set TAG buat cek jawaban
             binding.btnOption1.setTag(Integer.valueOf(currentQuestion.getOption1()));
             binding.btnOption2.setTag(Integer.valueOf(currentQuestion.getOption2()));
-            binding.btnOption3.setTag(Integer.valueOf(currentQuestion.getOption3()));
-            binding.btnOption4.setTag(Integer.valueOf(currentQuestion.getOption4()));
 
             // Set ImageResource nya
             binding.btnOption1.setImageResource(Integer.valueOf(currentQuestion.getOption1()));
             binding.btnOption2.setImageResource(Integer.valueOf(currentQuestion.getOption2()));
-            binding.btnOption3.setImageResource(Integer.valueOf(currentQuestion.getOption3()));
-            binding.btnOption4.setImageResource(Integer.valueOf(currentQuestion.getOption4()));
 
             questionCounter++;
 

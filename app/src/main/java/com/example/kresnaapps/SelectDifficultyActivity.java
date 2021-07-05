@@ -138,11 +138,13 @@ public class SelectDifficultyActivity extends AppCompatActivity {
                 Button button = (Button) view;
                 difficulty = button.getText().toString();
                 if (category == 1) {
-                    intentKeSoalTextJawabanGambar();
+                    intentKeSoalGambarJawabanText();
                 } else if (category == 2) {
                     intentKeSoalGambarJawabanText();
                 } else if (category == 3) {
+                    intentKeSoalGambarJawabanText();
                 } else if (category == 4) {
+                    intentKeSoalGambarJawabanText();
                 } else if (category == 5) {
                 } else if (category == 6) {
                 }
@@ -155,11 +157,13 @@ public class SelectDifficultyActivity extends AppCompatActivity {
                 Button button = (Button) view;
                 difficulty = button.getText().toString();
                 if (category == 1) {
-                    intentKeSoalTextJawabanGambar();
+                    intentKeSoalGambarJawabanText();
                 } else if (category == 2) {
                     intentKeSoalGambarJawabanText();
                 } else if (category == 3) {
+                    intentKeSoalGambarJawabanText();
                 } else if (category == 4) {
+                    intentKeSoalGambarJawabanText();
                 } else if (category == 5) {
                 } else if (category == 6) {
                 }
@@ -172,11 +176,13 @@ public class SelectDifficultyActivity extends AppCompatActivity {
                 Button button = (Button) view;
                 difficulty = button.getText().toString();
                 if (category == 1) {
-                    intentKeSoalTextJawabanGambar();
+                    intentKeSoalGambarJawabanText();
                 } else if (category == 2) {
                     intentKeSoalGambarJawabanText();
                 } else if (category == 3) {
+                    intentKeSoalGambarJawabanText();
                 } else if (category == 4) {
+                    intentKeSoalGambarJawabanText();
                 } else if (category == 5) {
                 } else if (category == 6) {
                 }
@@ -190,6 +196,7 @@ public class SelectDifficultyActivity extends AppCompatActivity {
         intent.putExtra("CATEGORY", category);
         intent.putExtra("NAMA", "kamoe");
         startActivity(intent);
+        finish();
     }
 
     private void intentKeSoalGambarJawabanText() {
@@ -198,6 +205,7 @@ public class SelectDifficultyActivity extends AppCompatActivity {
         intent.putExtra("CATEGORY", category);
         intent.putExtra("NAMA", "kamoe");
         startActivity(intent);
+        finish();
     }
 
     private void ambilSharedPrefs() {

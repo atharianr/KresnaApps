@@ -133,7 +133,7 @@
                     android:layout_margin="12dp"
                     android:background="@drawable/rounded_button_kresna_cream"
                     android:scaleType="centerInside"
-                    android:src="@drawable/add_icon" />
+                    android:src="@drawable/multi_icon" />
 
                 <TextView
                     android:layout_width="1dp"
