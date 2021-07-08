@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kresna</string>
+    <string name="app_name">KresnaDemo</string>
     <string name="easy">easy</string>
     <string name="medium">medium</string>
     <string name="hard">hard</string>

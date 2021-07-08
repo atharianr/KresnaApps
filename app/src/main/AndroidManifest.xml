@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KresnaApps">
         <activity
+            android:name=".SoalTextJawabanTextActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape"/>
+        <activity
             android:name=".SoalGambarJawabanTextActivity"
             android:configChanges="orientation"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".AboutAppActivity"
             android:configChanges="orientation"

@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
         binding.btnLearnAddition.setEnabled(true);
         binding.btnLearnSubstraction.setEnabled(true);
         binding.btnLearnMultiply.setEnabled(true);
-        binding.btnSocial.setEnabled(false);
-        binding.btnQuiz.setEnabled(false);
+        binding.btnSocial.setEnabled(true);
+        binding.btnQuiz.setEnabled(true);
 
         binding.btnLogo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 category = 5;
-                intentPakeData();
+                intentSocialExperiment();
             }
         });
 
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 category = 6;
-                intentPakeData();
+                intentQuiz();
             }
         });
     }
@@ -96,5 +96,23 @@ public class MainActivity extends AppCompatActivity {
     private void intentKeAbout() {
         Intent intent = new Intent(MainActivity.this, AboutAppActivity.class);
         startActivity(intent);
+    }
+
+    private void intentSocialExperiment() {
+        Intent intent = new Intent(MainActivity.this, SoalTextJawabanTextActivity.class);
+        intent.putExtra("CATEGORY", category);
+        intent.putExtra("DIFFICULTY", "easy");
+        intent.putExtra("NAMA", "kamoe");
+        startActivity(intent);
+        finish();
+    }
+
+    private void intentQuiz() {
+        Intent intent = new Intent(MainActivity.this, SoalGambarJawabanTextActivity .class);
+        intent.putExtra("CATEGORY", category);
+        intent.putExtra("DIFFICULTY", "easy");
+        intent.putExtra("NAMA", "kamoe");
+        startActivity(intent);
+        finish();
     }
 }

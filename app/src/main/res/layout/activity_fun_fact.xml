@@ -49,20 +49,6 @@
         android:layout_marginRight="36dp"
         android:layout_marginBottom="36dp">
 
-        <RelativeLayout
-            android:id="@+id/rl_info_score"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1">
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_nilai"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:listitem="@layout/nilai_per_soal_row"/>
-        </RelativeLayout>
-
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_funfact"
             android:layout_width="100dp"
@@ -83,6 +69,7 @@
                     android:padding="24dp">
 
                     <ImageView
+                        android:id="@+id/iv_fun_fact"
                         android:layout_width="match_parent"
                         android:layout_height="144dp"
                         android:scaleType="centerCrop"
@@ -96,6 +83,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/tv_judul"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Judul"
@@ -106,6 +94,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/tv_deskripsi"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="4dp"
@@ -113,6 +102,31 @@
                 </LinearLayout>
             </ScrollView>
         </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:id="@+id/rl_info_score"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1">
+
+            <TextView
+                android:id="@+id/tv_jumlah_salah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ini jumlah kesalahanmu tiap soal:"
+                android:textSize="16dp"
+                android:textColor="@color/kresna_cream"
+                android:textStyle="bold"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_nilai"
+                android:layout_below="@id/tv_jumlah_salah"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/nilai_per_soal_row"/>
+        </RelativeLayout>
+
     </GridLayout>
 
 </RelativeLayout>

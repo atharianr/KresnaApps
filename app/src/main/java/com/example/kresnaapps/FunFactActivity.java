@@ -48,6 +48,7 @@ public class FunFactActivity extends AppCompatActivity {
         questionList = dbHelper.getQuestion(category, difficulty);
 
         binding.tvArraySalah.setText("Array: " + arraySalah.toString());
+        tampilFunFact();
 
         mediaPlayerState = 0;
         binding.btnPlayAudio.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +70,44 @@ public class FunFactActivity extends AppCompatActivity {
         binding.rvNilai.setLayoutManager(layoutManager);
         binding.rvNilai.setAdapter(salahAdapter);
 
+    }
+
+    private void tampilFunFact(){
+        switch (category){
+            case 2:
+                if (difficulty.equals("easy")){
+                    binding.ivFunFact.setImageResource(R.drawable.fae);
+                } else if (difficulty.equals("medium")){
+                    binding.ivFunFact.setImageResource(R.drawable.fam);
+                } else {
+                    binding.ivFunFact.setImageResource(R.drawable.fah);
+                }
+                break;
+            case 3:
+                if (difficulty.equals("easy")){
+                    binding.ivFunFact.setImageResource(R.drawable.fse);
+                } else if (difficulty.equals("medium")){
+                    binding.ivFunFact.setImageResource(R.drawable.fsm);
+                } else {
+                    binding.ivFunFact.setImageResource(R.drawable.fsh);
+                }
+                break;
+            case 4:
+                if (difficulty.equals("easy")){
+                    binding.ivFunFact.setImageResource(R.drawable.fme);
+                } else if (difficulty.equals("medium")){
+                    binding.ivFunFact.setImageResource(R.drawable.fmm);
+                } else {
+                    binding.ivFunFact.setImageResource(R.drawable.fmh);
+                }
+                break;
+            case 5:
+                binding.ivFunFact.setImageResource(R.drawable.fe);
+                break;
+            case 6:
+                binding.ivFunFact.setImageResource(R.drawable.fq);
+                break;
+        }
     }
 
     private void stopPlaying() {

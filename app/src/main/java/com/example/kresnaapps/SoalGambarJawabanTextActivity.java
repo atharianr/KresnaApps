@@ -140,6 +140,8 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
             binding.btnLanjut.setVisibility(View.INVISIBLE);
 
             currentQuestion = questionList.get(questionCounter);
+
+            // SET SOAL
             binding.ivSoal.setImageResource(Integer.valueOf(currentQuestion.getQuestion()));
 
             Log.d("questionnya", currentQuestion.getQuestion());
@@ -375,10 +377,28 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
             startPlayingVNM();
         } else if (category == 1 && difficulty.equals("hard")) {
             startPlayingVNH();
+        } else if (category == 2 && difficulty.equals("easy")) {
+            startPlayingVAE();
+        } else if (category == 2 && difficulty.equals("medium")) {
+            startPlayingVAM();
+        } else if (category == 2 && difficulty.equals("hard")) {
+            startPlayingVAH();
+        } else if (category == 3 && difficulty.equals("easy")) {
+            startPlayingVSE();
+        } else if (category == 3 && difficulty.equals("medium")) {
+            startPlayingVSM();
+        } else if (category == 3 && difficulty.equals("hard")) {
+            startPlayingVSH();
+        } else if (category == 4 && difficulty.equals("easy")) {
+            startPlayingVME();
+        } else if (category == 4 && difficulty.equals("medium")) {
+            startPlayingVMM();
+        } else if (category == 4 && difficulty.equals("hard")) {
+            startPlayingVMH();
         }
     }
 
-    private void startPlayingVNE(){
+    private void startPlayingVNE() {
         if (mediaPlayer == null) {
             mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vne);
             mediaPlayer.start();
@@ -390,7 +410,7 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
         }
     }
 
-    private void startPlayingVNM(){
+    private void startPlayingVNM() {
         if (mediaPlayer == null) {
             mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vnm);
             mediaPlayer.start();
@@ -402,7 +422,7 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
         }
     }
 
-    private void startPlayingVNH(){
+    private void startPlayingVNH() {
         if (mediaPlayer == null) {
             mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vnh);
             mediaPlayer.start();
@@ -413,4 +433,114 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
             startPlayingVNH();
         }
     }
+
+    private void startPlayingVAE() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vae);
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingVAE();
+        }
+    }
+
+    private void startPlayingVAM() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vam);
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingVAM();
+        }
+    }
+
+    private void startPlayingVAH() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vah);
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingVAH();
+        }
+    }
+
+    private void startPlayingVSE() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vse);
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingVSE();
+        }
+    }
+
+    private void startPlayingVSM() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vsm);
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingVSM();
+        }
+    }
+
+    private void startPlayingVSH() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vsh);
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingVSH();
+        }
+    }
+
+    private void startPlayingVME() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vme);
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingVME();
+        }
+    }
+
+    private void startPlayingVMM() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vmm);
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingVMM();
+        }
+    }
+
+    private void startPlayingVMH() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vmh);
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingVMH();
+        }
+    }
+
+
 }
