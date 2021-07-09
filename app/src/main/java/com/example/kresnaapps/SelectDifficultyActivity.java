@@ -195,6 +195,7 @@ public class SelectDifficultyActivity extends AppCompatActivity {
         intent.putExtra("DIFFICULTY", difficulty);
         intent.putExtra("CATEGORY", category);
         intent.putExtra("NAMA", "kamoe");
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }
@@ -204,6 +205,7 @@ public class SelectDifficultyActivity extends AppCompatActivity {
         intent.putExtra("DIFFICULTY", difficulty);
         intent.putExtra("CATEGORY", category);
         intent.putExtra("NAMA", "kamoe");
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }

@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.kresnaapps.databinding.ActivityLearnNumberBinding;
@@ -64,7 +65,6 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
         questionList = dbHelper.getQuestion(category, difficulty);
         Collections.shuffle(questionList);
         questionCountTotal = questionList.size();
-        startPlayingKategori();
         showNextQuestion();
 
         binding.btnOption1.setOnClickListener(new View.OnClickListener() {
@@ -141,6 +141,9 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
 
             currentQuestion = questionList.get(questionCounter);
 
+            // SET VOICE OVER
+            startPlayingSoal(currentQuestion.getVoiceOver());
+
             // SET SOAL
             binding.ivSoal.setImageResource(Integer.valueOf(currentQuestion.getQuestion()));
 
@@ -170,6 +173,16 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
                 case 4:
                     levelUpMulti();
                     break;
+                case 6:
+                    Intent intent = new Intent(SoalGambarJawabanTextActivity.this, FunFactActivity.class);
+                    intent.putExtra("SCORE", score);
+                    intent.putExtra("DIFFICULTY", difficulty);
+                    intent.putExtra("CATEGORY", category);
+                    intent.putExtra("NAMA", nama);
+                    intent.putExtra("ARRAY_SALAH", (Serializable) arraySalah);
+                    startActivity(intent);
+                    finish();
+                    break;
             }
         }
     }
@@ -196,6 +209,23 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.activity_dialog_box);
         dialog.show();
+        Button btn_yes = dialog.findViewById(R.id.btn_yes);
+        btn_yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stopPlaying();
+                Intent intent = new Intent(SoalGambarJawabanTextActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        Button btn_no = dialog.findViewById(R.id.btn_no);
+        btn_no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 
     @Override
@@ -368,179 +398,15 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
         }
     }
 
-    private void startPlayingKategori() {
-        Toast.makeText(SoalGambarJawabanTextActivity.this, String.format("category: %d, diff: %s", category, difficulty), Toast.LENGTH_SHORT).show();
-
-        if (category == 1 && difficulty.equals("easy")) {
-            startPlayingVNE();
-        } else if (category == 1 && difficulty.equals("medium")) {
-            startPlayingVNM();
-        } else if (category == 1 && difficulty.equals("hard")) {
-            startPlayingVNH();
-        } else if (category == 2 && difficulty.equals("easy")) {
-            startPlayingVAE();
-        } else if (category == 2 && difficulty.equals("medium")) {
-            startPlayingVAM();
-        } else if (category == 2 && difficulty.equals("hard")) {
-            startPlayingVAH();
-        } else if (category == 3 && difficulty.equals("easy")) {
-            startPlayingVSE();
-        } else if (category == 3 && difficulty.equals("medium")) {
-            startPlayingVSM();
-        } else if (category == 3 && difficulty.equals("hard")) {
-            startPlayingVSH();
-        } else if (category == 4 && difficulty.equals("easy")) {
-            startPlayingVME();
-        } else if (category == 4 && difficulty.equals("medium")) {
-            startPlayingVMM();
-        } else if (category == 4 && difficulty.equals("hard")) {
-            startPlayingVMH();
-        }
-    }
-
-    private void startPlayingVNE() {
+    private void startPlayingSoal(String voiceOver) {
         if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vne);
+            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, Integer.valueOf(voiceOver));
             mediaPlayer.start();
         } else if (mediaPlayer != null) {
             mediaPlayer.stop();
             mediaPlayer.release();
             mediaPlayer = null;
-            startPlayingVNE();
+            startPlayingSoal(voiceOver);
         }
     }
-
-    private void startPlayingVNM() {
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vnm);
-            mediaPlayer.start();
-        } else if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
-            startPlayingVNM();
-        }
-    }
-
-    private void startPlayingVNH() {
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vnh);
-            mediaPlayer.start();
-        } else if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
-            startPlayingVNH();
-        }
-    }
-
-    private void startPlayingVAE() {
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vae);
-            mediaPlayer.start();
-        } else if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
-            startPlayingVAE();
-        }
-    }
-
-    private void startPlayingVAM() {
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vam);
-            mediaPlayer.start();
-        } else if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
-            startPlayingVAM();
-        }
-    }
-
-    private void startPlayingVAH() {
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vah);
-            mediaPlayer.start();
-        } else if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
-            startPlayingVAH();
-        }
-    }
-
-    private void startPlayingVSE() {
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vse);
-            mediaPlayer.start();
-        } else if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
-            startPlayingVSE();
-        }
-    }
-
-    private void startPlayingVSM() {
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vsm);
-            mediaPlayer.start();
-        } else if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
-            startPlayingVSM();
-        }
-    }
-
-    private void startPlayingVSH() {
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vsh);
-            mediaPlayer.start();
-        } else if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
-            startPlayingVSH();
-        }
-    }
-
-    private void startPlayingVME() {
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vme);
-            mediaPlayer.start();
-        } else if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
-            startPlayingVME();
-        }
-    }
-
-    private void startPlayingVMM() {
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vmm);
-            mediaPlayer.start();
-        } else if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
-            startPlayingVMM();
-        }
-    }
-
-    private void startPlayingVMH() {
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(SoalGambarJawabanTextActivity.this, R.raw.vmh);
-            mediaPlayer.start();
-        } else if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
-            startPlayingVMH();
-        }
-    }
-
-
 }

@@ -6,20 +6,21 @@ public class Question {
     public static final String DIFFICULTY_MEDIUM = "medium";
     public static final String DIFFICULTY_HARD = "hard";
 
-    private String question, option1, option2, option3, option4, answerStr, difficulty;
+    private String question, option1, option2, answerStr, difficulty, voiceOver;
     private int answer, id, categoryId;
 
     public Question(){
 
     }
 
-    public Question(String question, String option1, String option2, String answerStr, String difficulty, int categoryId) {
+    public Question(String question, String option1, String option2, String answerStr, String difficulty, int categoryId, String voiceOver) {
         this.question = question;
         this.option1 = option1;
         this.option2 = option2;
         this.answerStr = answerStr;
         this.difficulty = difficulty;
         this.categoryId = categoryId;
+        this.voiceOver = voiceOver;
     }
 
     public int getId() {
@@ -92,5 +93,13 @@ public class Question {
 
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public String getVoiceOver() {
+        return voiceOver;
+    }
+
+    public void setVoiceOver(String voiceOver) {
+        this.voiceOver = voiceOver;
     }
 }

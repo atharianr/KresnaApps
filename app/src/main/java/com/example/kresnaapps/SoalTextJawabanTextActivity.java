@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.kresnaapps.databinding.ActivityLearnNumberBinding;
@@ -42,7 +43,7 @@ public class SoalTextJawabanTextActivity extends AppCompatActivity {
     private int questionCounter, questionCountTotal, score, category, salah, levelNumber,
             levelAdd, levelSubs, levelMulti, levelSocial, levelQuiz;
     private String selectedAnswer, difficulty, nama;
-    private MediaPlayer mediaPlayer, mediaPlayerKategori;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,6 +143,9 @@ public class SoalTextJawabanTextActivity extends AppCompatActivity {
 
             currentQuestion = questionList.get(questionCounter);
 
+            // SET VOICE OVER
+            startPlayingSoal(currentQuestion.getVoiceOver());
+
             // SET SOAL
             binding.tvSoal.setText(currentQuestion.getQuestion());
 
@@ -191,6 +195,23 @@ public class SoalTextJawabanTextActivity extends AppCompatActivity {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.activity_dialog_box);
         dialog.show();
+        Button btn_yes = dialog.findViewById(R.id.btn_yes);
+        btn_yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stopPlaying();
+                Intent intent = new Intent(SoalTextJawabanTextActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        Button btn_no = dialog.findViewById(R.id.btn_no);
+        btn_no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 
     @Override
@@ -252,6 +273,18 @@ public class SoalTextJawabanTextActivity extends AppCompatActivity {
             mediaPlayer.release();
             mediaPlayer = null;
             startPlayingSalah();
+        }
+    }
+
+    private void startPlayingSoal(String voiceOver) {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(SoalTextJawabanTextActivity.this, Integer.valueOf(voiceOver));
+            mediaPlayer.start();
+        } else if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            startPlayingSoal(voiceOver);
         }
     }
 }

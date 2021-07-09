@@ -7,11 +7,21 @@
     android:background="@color/black"
     tools:context=".FunFactActivity">
 
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="24dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        android:scaleType="centerInside"/>
+
     <ImageView
         android:id="@+id/iv_kresna_logo"
         android:layout_width="96dp"
         android:layout_height="32.26dp"
         android:layout_margin="24dp"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/kresna_logo" />
 
     <ImageButton
@@ -31,14 +41,6 @@
         android:layout_alignParentBottom="true"
         android:src="@drawable/wayang"
         android:scaleType="centerInside"/>
-
-    <TextView
-        android:id="@+id/tv_array_salah"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Array: 0"
-        android:textColor="@color/kresna_cream"/>
 
     <GridLayout
         android:layout_width="match_parent"
@@ -72,7 +74,7 @@
                         android:id="@+id/iv_fun_fact"
                         android:layout_width="match_parent"
                         android:layout_height="144dp"
-                        android:scaleType="centerCrop"
+                        android:scaleType="centerInside"
                         android:src="@drawable/funfact_rencang" />
 
                     <LinearLayout
@@ -88,7 +90,7 @@
                             android:layout_height="wrap_content"
                             android:text="Judul"
                             android:textColor="@color/black"
-                            android:textSize="16dp"
+                            android:textSize="20dp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -98,7 +100,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="4dp"
-                        android:text="Rencong atau yang dalam Bahasa Aceh yang ditulis dengan huruf latin dibaca Rintjong adalah senjata khas Suku Aceh. Rencong merupakan simbol identitas diri, keberanian, dan ketangguhan Suku Aceh. Ada beberapa jenis rencong. Pertama Rencong Pudoi yaitu Rencong yang belum sempurna pada bentuk gagangnya." />
+                        android:text="Deskripsi" />
                 </LinearLayout>
             </ScrollView>
         </androidx.cardview.widget.CardView>
