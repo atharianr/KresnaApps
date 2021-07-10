@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="18dp"
@@ -11,24 +11,28 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:padding="36dp">
+        android:paddingLeft="36dp"
+        android:paddingRight="36dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
             android:text="Kamu yakin mau keluar?"
             android:textColor="@color/black"
             android:layout_marginBottom="16dp"
             android:textAlignment="center"/>
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
             <Button
                 android:id="@+id/btn_yes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:backgroundTint="@color/black"
-                android:text="ya"
+                android:text="Iya"
+                android:textAllCaps="false"
                 android:textColor="@color/kresna_cream"/>
             <Button
                 android:id="@+id/btn_no"
@@ -36,7 +40,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:backgroundTint="@color/kresna_cream"
-                android:text="tidak"
+                android:text="Tidak"
+                android:textAllCaps="false"
                 android:textColor="@color/black"/>
         </LinearLayout>
     </LinearLayout>

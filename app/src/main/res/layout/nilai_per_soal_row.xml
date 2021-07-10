@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@android:color/transparent"
-    android:padding="4dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/kresna_cream"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="8dp">
 
-    <TextView
-        android:id="@+id/tv_soal_ke"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Soal - n: "
-        android:textColor="@color/kresna_cream"/>
+        android:orientation="horizontal"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp">
+        <TextView
+            android:id="@+id/tv_soal_ke"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Soal - n: "
+            android:textColor="@color/black"/>
 
-    <TextView
-        android:id="@+id/tv_salah"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/tv_soal_ke"
-        android:text="10"
-        android:textStyle="bold"
-        android:textColor="@color/kresna_cream"/>
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_salah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_soal_ke"
+            android:text="10"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

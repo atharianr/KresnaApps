@@ -100,7 +100,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="4dp"
-                        android:text="Deskripsi" />
+                        android:text="Deskripsi"
+                        android:textColor="#4A4A4A"/>
                 </LinearLayout>
             </ScrollView>
         </androidx.cardview.widget.CardView>

@@ -12,39 +12,44 @@
         android:id="@+id/iv_kresna_logo"
         android:layout_width="96dp"
         android:layout_height="32.26dp"
+        android:layout_centerHorizontal="true"
         android:layout_margin="24dp"
         android:src="@drawable/kresna_logo" />
 
-    <TextView
-        android:id="@+id/tv_score"
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="24dp"
         android:layout_alignParentEnd="true"
         android:layout_margin="24dp"
-        android:text="Score: 0"
-        android:textColor="@color/white" />
+        android:backgroundTint="@color/kresna_cream"
+        app:cardCornerRadius="6dp">
 
-    <TextView
-        android:id="@+id/tv_salah"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:layout_toLeftOf="@+id/tv_score"
-        android:text="Salah: 0"
-        android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/tv_nomor_soal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Soal 1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/tv_array_salah"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_margin="24dp"
-        android:layout_toLeftOf="@+id/tv_salah"
-        android:text="Array Salah: 0"
-        android:textColor="@color/white" />
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        android:scaleType="centerInside"/>
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@id/btn_lanjut"
         android:layout_below="@id/iv_kresna_logo"
         android:columnCount="2">
 
@@ -56,7 +61,6 @@
             android:layout_columnWeight="1"
             android:layout_marginLeft="64dp"
             android:layout_marginRight="32dp"
-            android:layout_marginBottom="64dp"
             android:textAlignment="center"
             app:cardBackgroundColor="@color/kresna_cream"
             app:cardCornerRadius="4dp">
@@ -65,8 +69,8 @@
                 android:id="@+id/tv_soal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="24dp"
                 android:layout_gravity="center"
+                android:layout_margin="24dp"
                 android:text="Ayah membeli Bingka 5 biji, 2 biji Bingka dimakan Ibu, berapa sisa biji Bingka yang ada ?"
                 android:textColor="@android:color/black"
                 android:textSize="12dp"
@@ -82,7 +86,6 @@
             android:layout_columnWeight="1"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="64dp"
-            android:layout_marginBottom="64dp"
             android:layout_toRightOf="@+id/cv_soal"
             android:columnCount="1">
 
@@ -108,7 +111,7 @@
                     android:scaleType="centerInside"
                     android:text="1"
                     android:textSize="24dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -139,13 +142,15 @@
     </GridLayout>
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_lanjut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="144dp"
+        android:layout_height="36dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="24dp"
+        android:background="@drawable/rounded_button_selector"
+        android:visibility="invisible"
         android:text="Lanjut"
-        android:visibility="invisible" />
+        android:textAllCaps="false"/>
 </RelativeLayout>

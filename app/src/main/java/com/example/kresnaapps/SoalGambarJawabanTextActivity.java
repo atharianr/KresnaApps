@@ -16,10 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
-
-import com.example.kresnaapps.databinding.ActivityLearnNumberBinding;
 import com.example.kresnaapps.databinding.ActivitySoalGambarJawabanTextBinding;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -42,7 +39,7 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
     private int questionCounter, questionCountTotal, score, category, salah, levelNumber,
             levelAdd, levelSubs, levelMulti, levelSocial, levelQuiz;
     private String selectedAnswer, difficulty, nama;
-    private MediaPlayer mediaPlayer, mediaPlayerKategori;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +57,6 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
 
         arraySalah = new ArrayList<Integer>();
 
-        //QuizDbHelper dbHelper = new QuizDbHelper(this);
         QuizDbHelper dbHelper = QuizDbHelper.getInstance(this);
         questionList = dbHelper.getQuestion(category, difficulty);
         Collections.shuffle(questionList);
@@ -86,10 +82,17 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
                 checkAnswer();
             }
         });
+
+        binding.btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     private void checkAnswer() {
-        binding.tvSalah.setText("Salah: " + salah);
+        //binding.tvSalah.setText("Salah: " + salah);
 
         binding.btnLanjut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,14 +105,14 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
         if (selectedAnswer.equals(currentQuestion.getAnswerStr())) {
             Toast.makeText(SoalGambarJawabanTextActivity.this, "Benar!", Toast.LENGTH_SHORT).show();
             score++;
-            binding.tvScore.setText("Score: " + score);
+            //binding.tvScore.setText("Score: " + score);
 
             binding.btnOption1.setEnabled(false);
             binding.btnOption2.setEnabled(false);
             binding.btnLanjut.setVisibility(View.VISIBLE);
 
             arraySalah.add(salah);
-            binding.tvArraySalah.setText("Array Salah: " + arraySalah.toString());
+            //binding.tvArraySalah.setText("Array Salah: " + arraySalah.toString());
 
             startPlayingBenar();
             showSolution();
@@ -117,8 +120,8 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
         } else {
             salah++;
             Toast.makeText(SoalGambarJawabanTextActivity.this, "Salah!", Toast.LENGTH_SHORT).show();
-            binding.tvScore.setText("Score: " + score);
-            binding.tvSalah.setText("Salah: " + salah);
+            //binding.tvScore.setText("Score: " + score);
+            //binding.tvSalah.setText("Salah: " + salah);
 
             startPlayingSalah();
         }
@@ -130,8 +133,8 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
         if (questionCounter < questionCountTotal) {
 
             salah = 0;
-            binding.tvSalah.setText("Salah: " + salah);
-            binding.tvArraySalah.setText("Array Salah: " + arraySalah.toString());
+            //binding.tvSalah.setText("Salah: " + salah);
+            //binding.tvArraySalah.setText("Array Salah: " + arraySalah.toString());
 
             binding.btnOption1.setEnabled(true);
             binding.btnOption2.setEnabled(true);
@@ -140,6 +143,9 @@ public class SoalGambarJawabanTextActivity extends AppCompatActivity {
             binding.btnLanjut.setVisibility(View.INVISIBLE);
 
             currentQuestion = questionList.get(questionCounter);
+
+            // SET NOMOR SOAL
+            binding.tvNomorSoal.setText(String.format("Soal %d", questionCounter + 1));
 
             // SET VOICE OVER
             startPlayingSoal(currentQuestion.getVoiceOver());

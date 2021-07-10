@@ -23,10 +23,6 @@
             android:screenOrientation="landscape" />
         <activity android:name=".DialogBox" />
         <activity
-            android:name=".IsiNamaActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="landscape" />
-        <activity
             android:name=".SplashActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape">
