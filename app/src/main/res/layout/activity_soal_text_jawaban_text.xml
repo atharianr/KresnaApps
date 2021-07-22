@@ -73,7 +73,7 @@
                 android:layout_margin="24dp"
                 android:text="Ayah membeli Bingka 5 biji, 2 biji Bingka dimakan Ibu, berapa sisa biji Bingka yang ada ?"
                 android:textColor="@android:color/black"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
@@ -110,7 +110,7 @@
                     android:background="@color/kresna_cream"
                     android:scaleType="centerInside"
                     android:text="1"
-                    android:textSize="24dp"
+                    android:textSize="42sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 
@@ -135,7 +135,7 @@
                     android:background="@color/kresna_cream"
                     android:scaleType="centerInside"
                     android:text="2"
-                    android:textSize="24dp"
+                    android:textSize="42sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
         </GridLayout>

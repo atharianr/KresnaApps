@@ -90,7 +90,7 @@
                             android:layout_height="wrap_content"
                             android:text="Judul"
                             android:textColor="@color/black"
-                            android:textSize="20dp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -117,7 +117,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ini jumlah kesalahanmu tiap soal:"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textColor="@color/kresna_cream"
                 android:textStyle="bold"/>
 

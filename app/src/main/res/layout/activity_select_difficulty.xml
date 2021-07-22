@@ -43,7 +43,8 @@
                 android:layout_width="256dp"
                 android:layout_height="36dp"
                 android:background="@drawable/rounded_button_selector"
-                android:text="@string/easy" />
+                android:text="@string/easy"
+                android:textColor="@color/black" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_medium"
@@ -52,17 +53,18 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/rounded_button_selector"
+                android:enabled="false"
                 android:text="@string/medium"
-                android:enabled="false"/>
+                android:textColor="@color/black" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_hard"
                 android:layout_width="256dp"
                 android:layout_height="36dp"
                 android:background="@drawable/rounded_button_selector"
-                android:text="@string/hard"
                 android:enabled="false"
-                />
+                android:text="@string/hard"
+                android:textColor="@color/black" />
         </GridLayout>
     </LinearLayout>
 

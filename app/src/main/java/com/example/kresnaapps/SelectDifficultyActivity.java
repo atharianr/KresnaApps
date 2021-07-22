@@ -138,11 +138,11 @@ public class SelectDifficultyActivity extends AppCompatActivity {
                 if (category == 1) {
                     intentKeSoalGambarJawabanText();
                 } else if (category == 2) {
-                    intentKeSoalGambarJawabanText();
+                    intentKeSoalGambarJawabanGambar();
                 } else if (category == 3) {
-                    intentKeSoalGambarJawabanText();
+                    intentKeSoalGambarJawabanGambar();
                 } else if (category == 4) {
-                    intentKeSoalGambarJawabanText();
+                    intentKeSoalGambarJawabanGambar();
                 } else if (category == 5) {
                 } else if (category == 6) {
                 }
@@ -157,11 +157,11 @@ public class SelectDifficultyActivity extends AppCompatActivity {
                 if (category == 1) {
                     intentKeSoalGambarJawabanText();
                 } else if (category == 2) {
-                    intentKeSoalGambarJawabanText();
+                    intentKeSoalGambarJawabanGambar();
                 } else if (category == 3) {
-                    intentKeSoalGambarJawabanText();
+                    intentKeSoalGambarJawabanGambar();
                 } else if (category == 4) {
-                    intentKeSoalGambarJawabanText();
+                    intentKeSoalGambarJawabanGambar();
                 } else if (category == 5) {
                 } else if (category == 6) {
                 }
@@ -200,6 +200,16 @@ public class SelectDifficultyActivity extends AppCompatActivity {
 
     private void intentKeSoalGambarJawabanText() {
         Intent intent = new Intent(SelectDifficultyActivity.this, SoalGambarJawabanTextActivity.class);
+        intent.putExtra("DIFFICULTY", difficulty);
+        intent.putExtra("CATEGORY", category);
+        intent.putExtra("NAMA", "kamoe");
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    private void intentKeSoalGambarJawabanGambar() {
+        Intent intent = new Intent(SelectDifficultyActivity.this, SoalGambarJawabanGambarActivity.class);
         intent.putExtra("DIFFICULTY", difficulty);
         intent.putExtra("CATEGORY", category);
         intent.putExtra("NAMA", "kamoe");
