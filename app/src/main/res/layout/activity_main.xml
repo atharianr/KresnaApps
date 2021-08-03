@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <ImageView
         android:layout_width="96dp"
@@ -47,15 +47,15 @@
                     android:layout_margin="12dp"
                     android:background="@drawable/rounded_button_kresna_cream"
                     android:scaleType="centerInside"
-                    android:src="@drawable/number_icon"
-                    android:text="Learn Number" />
+                    android:src="@drawable/number_icon" />
 
                 <TextView
                     android:layout_width="1dp"
                     android:layout_height="1dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:text="Learn Number"
+                    android:text="@string/learn_number"
+                    android:textStyle="bold"
                     android:textAlignment="center"
                     android:textColor="@color/kresna_cream" />
 
@@ -84,7 +84,8 @@
                     android:layout_height="1dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:text="Learn Addition"
+                    android:text="@string/learn_addition"
+                    android:textStyle="bold"
                     android:textAlignment="center"
                     android:textColor="@color/kresna_cream" />
             </GridLayout>
@@ -112,7 +113,8 @@
                     android:layout_height="1dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:text="Learn Substraction"
+                    android:text="@string/learn_substraction"
+                    android:textStyle="bold"
                     android:textAlignment="center"
                     android:textColor="@color/kresna_cream" />
             </GridLayout>
@@ -140,7 +142,8 @@
                     android:layout_height="1dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:text="Learn Multiplication"
+                    android:text="@string/learn_multiplication"
+                    android:textStyle="bold"
                     android:textAlignment="center"
                     android:textColor="@color/kresna_cream" />
             </GridLayout>
@@ -170,15 +173,15 @@
                     android:layout_margin="12dp"
                     android:background="@drawable/rounded_button_kresna_cream"
                     android:scaleType="centerInside"
-                    android:src="@drawable/social_icon"
-                    android:text="Social Experiment" />
+                    android:src="@drawable/social_icon" />
 
                 <TextView
                     android:layout_width="1dp"
                     android:layout_height="1dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:text="Social Experience"
+                    android:text="@string/social_experiment"
+                    android:textStyle="bold"
                     android:textAlignment="center"
                     android:textColor="@color/kresna_cream" />
             </GridLayout>
@@ -199,15 +202,15 @@
                     android:layout_margin="12dp"
                     android:background="@drawable/rounded_button_kresna_cream"
                     android:scaleType="centerInside"
-                    android:src="@drawable/quiz_icon"
-                    android:text="Quiz" />
+                    android:src="@drawable/quiz_icon" />
 
                 <TextView
                     android:layout_width="1dp"
                     android:layout_height="1dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:text="Quiz"
+                    android:text="@string/quiz"
+                    android:textStyle="bold"
                     android:textAlignment="center"
                     android:textColor="@color/kresna_cream" />
 

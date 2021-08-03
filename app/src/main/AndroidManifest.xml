@@ -4,30 +4,30 @@
 
     <application
         android:allowBackup="false"
-        android:icon="@drawable/kresna_logo_icon"
+        android:icon="@mipmap/ic_launcher_kresna"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/kresna_logo_icon"
+        android:roundIcon="@mipmap/ic_launcher_kresna_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KresnaApps">
         <activity
-            android:name=".SoalGambarJawabanGambarActivity"
+            android:name=".ui.SoalGambarJawabanGambarActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".SoalTextJawabanTextActivity"
+            android:name=".ui.SoalTextJawabanTextActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".SoalGambarJawabanTextActivity"
+            android:name=".ui.SoalGambarJawabanTextActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".AboutAppActivity"
+            android:name=".ui.AboutAppActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
-        <activity android:name=".DialogBox" />
+        <activity android:name=".ui.dialogbox.DialogBox" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.SplashActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape">
             <intent-filter>
@@ -37,19 +37,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FunFactActivity"
+            android:name=".ui.FunFactActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".SelectDifficultyActivity"
+            android:name=".ui.SelectDifficultyActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".LearnNumberActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
     </application>

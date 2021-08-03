@@ -1,6 +1,27 @@
 <resources>
-    <string name="app_name">Kresna Demo v4.0</string>
+    <string name="app_name">Kresna</string>
     <string name="easy">easy</string>
     <string name="medium">medium</string>
     <string name="hard">hard</string>
+    <string name="tentang_aplikasi">Tentang Aplikasi</string>
+    <string name="iya">Iya</string>
+    <string name="tidak">Tidak</string>
+    <string name="kamu_yakin_mau_keluar">Kamu yakin mau keluar?</string>
+    <string name="judul">Judul</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="ini_jumlah_kesalahanmu_tiap_soal">Ini jumlah kesalahanmu tiap soal:</string>
+    <string name="learn_number">Learn Number</string>
+    <string name="learn_addition">Learn Addition</string>
+    <string name="learn_substraction">Learn Substraction</string>
+    <string name="learn_multiplication">Learn Multiplication</string>
+    <string name="social_experiment">Social Experiment</string>
+    <string name="quiz">Quiz</string>
+    <string name="pilih_tingkat_kesulitan">Pilih tingkat kesulitan:</string>
+    <string name="soal_1">Soal 1</string>
+    <string name="option1">option1</string>
+    <string name="option2">option2</string>
+    <string name="lanjut">Lanjut</string>
+    <string name="mulai">Mulai</string>
+    <string name="angka_bold">10</string>
+    <string name="soal_n">Soal - n:</string>
 </resources>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".AboutAppActivity">
+    tools:context=".ui.AboutAppActivity">
 
     <ImageButton
         android:id="@+id/btn_play_audio"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_margin="24dp"
-        android:text="Tentang Aplikasi"
+        android:text="@string/tentang_aplikasi"
         android:textColor="@color/kresna_cream"
         android:textStyle="bold" />
 

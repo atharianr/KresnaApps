@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".FunFactActivity">
+    tools:context=".ui.FunFactActivity">
 
     <ImageButton
         android:id="@+id/btn_back"
@@ -13,7 +13,7 @@
         android:layout_height="24dp"
         android:layout_margin="24dp"
         android:background="@android:color/transparent"
-        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        android:src="@drawable/ic_baseline_home_24"
         android:scaleType="centerInside"/>
 
     <ImageView
@@ -88,7 +88,7 @@
                             android:id="@+id/tv_judul"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Judul"
+                            android:text="@string/judul"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -100,7 +100,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="4dp"
-                        android:text="Deskripsi"
+                        android:text="@string/deskripsi"
                         android:textColor="#4A4A4A"/>
                 </LinearLayout>
             </ScrollView>
@@ -116,7 +116,7 @@
                 android:id="@+id/tv_jumlah_salah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ini jumlah kesalahanmu tiap soal:"
+                android:text="@string/ini_jumlah_kesalahanmu_tiap_soal"
                 android:textSize="16sp"
                 android:textColor="@color/kresna_cream"
                 android:textStyle="bold"/>

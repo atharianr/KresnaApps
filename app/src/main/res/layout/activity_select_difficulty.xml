@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".SelectDifficultyActivity">
+    tools:context=".ui.SelectDifficultyActivity">
 
     <ImageView
         android:id="@+id/iv_kresna_logo"
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Pilih tingkat kesulitan: "
+            android:text="@string/pilih_tingkat_kesulitan"
             android:textAlignment="center"
             android:textColor="@color/kresna_cream" />
 

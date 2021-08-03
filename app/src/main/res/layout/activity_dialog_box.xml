@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:text="Kamu yakin mau keluar?"
+            android:text="@string/kamu_yakin_mau_keluar"
             android:textColor="@color/black"
             android:layout_marginBottom="16dp"
             android:textAlignment="center"/>
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:backgroundTint="@color/black"
-                android:text="Iya"
+                android:text="@string/iya"
                 android:textAllCaps="false"
                 android:textColor="@color/kresna_cream"/>
             <Button
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:backgroundTint="@color/kresna_cream"
-                android:text="Tidak"
+                android:text="@string/tidak"
                 android:textAllCaps="false"
                 android:textColor="@color/black"/>
         </LinearLayout>
